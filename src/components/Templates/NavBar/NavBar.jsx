@@ -11,8 +11,8 @@ const NavBarWrapper = styled(Box)(() => ({
 }));
 
 export default class Navbar extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             trainersData: [],
         };

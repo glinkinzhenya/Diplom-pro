@@ -12,8 +12,8 @@ const TrainingCardWrapper = styled(Box)(() => ({
 }));
 
 export default class Trains extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             trainingsData: [],
         };

@@ -71,8 +71,8 @@ const ImageMarked = styled('span')(({ theme }) => ({
 
 
 export default class CreatSocial extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             images: [
                 { url: 'https://logo-site.ru/wp-content/uploads/ig-logo1.png', title: 'Instagram', width: '20%' },

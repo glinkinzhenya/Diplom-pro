@@ -9,8 +9,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { Typography } from '@mui/material';
 
 export default class CallBack extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = { open: false };
         this.handleClickOpen = this.handleClickOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
