@@ -1,31 +1,37 @@
-import React, { useEffect, useRef, useState }  from "react";
+import { Component } from "react";
 import { Typography } from "@mui/material";
 import './Header.css';
 
-export default function Header() {
-    const [inputWidth, setInputWidth] = useState('120px');
+export default class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputWidth: '120px'
+        };
+        this.handleClick = this.handleClick.bind(this);
+    }
 
-    const handleClick = () => {
-        setInputWidth('180px');
+    handleClick() {
+        this.setState({ inputWidth: '180px' });
         setTimeout(() => {
-            setInputWidth('180px');
+            this.setState({ inputWidth: '180px' });
         }, 0);
-    };
+    }
 
-
-    return (
-        <>
-            <Typography
-                variant="h3"
-                component="h2"
-                color='white'
-            >
-                Gym Team
-            </Typography>
-            <div>
-                <input onClick={handleClick} style={{ width: inputWidth, transition: 'width 0.2s ease-in-out' }} type="text" placeholder="Пошук тренування" />
-            </div>
-        </>
-
-    )
+    render() {
+        return (
+            <>
+                <Typography
+                    variant="h3"
+                    component="h2"
+                    color='white'
+                >
+                    Gym Team
+                </Typography>
+                <div>
+                    <input onClick={this.handleClick} style={{ width: this.state.inputWidth, transition: 'width 0.2s ease-in-out' }} type="text" placeholder="Пошук тренування" />
+                </div>
+            </>
+        )
+    }
 }

@@ -1,11 +1,15 @@
-import React from 'react';
-import { Box, Grid, Item, styled } from '@mui/material';
+import { Component } from 'react';
+import {
+  Box,
+  Grid,
+  styled
+} from '@mui/material';
 import Header from './components/Templates/Header/Header'
 import Footer from './components/Templates/Footer/Footer'
 import NavBar from './components/Templates/NavBar/NavBar'
 import Trains from './components/Templates/Main/Trainings'
 import './App.css';
-import { padding } from '@mui/system';
+
 
 const HeaderWrapper = styled(Box)(() => ({
   height: '15vh',
@@ -46,33 +50,33 @@ const FooterWrapper = styled(Box)(() => ({
 }));
 
 
-function App() {
-  return (
-    <div className='App'>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={12} lg={12}>
-          <HeaderWrapper>
-            <Header />
-          </HeaderWrapper>
+export default class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={12} lg={12}>
+            <HeaderWrapper>
+              <Header />
+            </HeaderWrapper>
+          </Grid>
+          <Grid item sm={2} md={2} lg={2} display={{ xs: "none", sm: "block" }}>
+            <NavBarWrapper>
+              <NavBar />
+            </NavBarWrapper>
+          </Grid>
+          <Grid item xs={12} sm={10} md={10} lg={10}>
+            <BodyWrapper>
+              <Trains />
+            </BodyWrapper>
+          </Grid>
+          <Grid item xs={12} md={12} lg={12}>
+            <FooterWrapper>
+              <Footer />
+            </FooterWrapper>
+          </Grid>
         </Grid>
-        <Grid item sm={2} md={2} lg={2} display={{ xs: "none", sm: "block" }}>
-          <NavBarWrapper>
-            <NavBar />
-          </NavBarWrapper>
-        </Grid>
-        <Grid item xs={12} sm={10} md={10} lg={10}>
-          <BodyWrapper>
-            <Trains />
-          </BodyWrapper>
-        </Grid>
-        <Grid item xs={12} md={12} lg={12}>
-          <FooterWrapper>
-            <Footer />
-          </FooterWrapper>
-        </Grid>
-      </Grid>
-    </div>
-  );
+      </div>
+    );
+  }
 }
-
-export default App;

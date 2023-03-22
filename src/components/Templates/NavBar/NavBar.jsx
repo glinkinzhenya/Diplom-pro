@@ -1,46 +1,46 @@
-import React, { useEffect, useState } from "react";
+import { Component } from "react";
 import { Box, styled } from "@mui/material";
 import { trainers } from "../../../api";
 import HalfRating from "../../NavBar/Rating";
-import './NavBar.css';
-
+import "./NavBar.css";
 
 const NavBarWrapper = styled(Box)(() => ({
-    padding: '20px',
-    overflow: 'scroll',
-    height: '58vh',
+    padding: "20px",
+    overflow: "scroll",
+    height: "58vh",
 }));
 
+export default class Navbar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            trainersData: [],
+        };
+    }
 
+    async componentDidMount() {
+        try {
+            const { data } = await trainers.fetch();
+            this.setState({ trainersData: data });
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
-export default function Navbar() {
+    render() {
+        const { trainersData } = this.state;
 
-    const [trainersData, setClasses] = useState([]);
-
-    useEffect(() => {
-        (async () => {
-            try {
-                const { data } = await trainers.fetch();
-                setClasses(data);
-            } catch (err) {
-                console.log(err);
-            }
-        })();
-    }, [])
-
-    return (
-        <NavBarWrapper>
-            <h2 className="popularPrograms">Популяні тренери</h2>
-            {trainersData.map(trainers => (
-                <div className="trainer">
-                    <img src={trainers.img} alt="" />
-                    <div>{trainers.name}</div>
-                    <HalfRating
-                        trainerImg={trainers.rating}
-                        key={trainers.id}
-                    />
-                </div>
-            ))}
-        </NavBarWrapper>
-    )
+        return (
+            <NavBarWrapper>
+                <h2 className="popularPrograms">Популярні тренери</h2>
+                {trainersData.map((trainer) => (
+                    <div className="trainer" key={trainer.id}>
+                        <img src={trainer.img} alt="" />
+                        <div>{trainer.name}</div>
+                        <HalfRating trainerImg={trainer.rating} />
+                    </div>
+                ))}
+            </NavBarWrapper>
+        );
+    }
 }
