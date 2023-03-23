@@ -21,8 +21,8 @@ export default function CallBack() {
 
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                 <Typography color="white"> Ми Вам зателефонуємо</Typography>
+            <Button sx={{ width: '70%' }} variant="outlined" onClick={handleClickOpen}>
+                <Typography sx={{ fontSize: '70%' }} color="white"> Ми Вам зателефонуємо</Typography>
             </Button>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Введіть Ваш номер телефону</DialogTitle>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, styled } from "@mui/material";
 import { trainers } from "../../../api";
-import HalfRating from "../../NavBar/Rating";
+import Rating from "../../NavBar/Rating";
 import './NavBar.css';
 
 
@@ -35,8 +35,8 @@ export default function Navbar() {
                 <div className="trainer">
                     <img src={trainers.img} alt="" />
                     <div>{trainers.name}</div>
-                    <HalfRating
-                        trainerImg={trainers.rating}
+                    <Rating
+                        trainerRating={trainers.rating}
                         key={trainers.id}
                     />
                 </div>

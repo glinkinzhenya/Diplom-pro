@@ -26,6 +26,8 @@ export default function Trains() {
         })();
     }, [])
 
+
+
     return (
         <TrainingCardWrapper>
 
@@ -39,4 +41,4 @@ export default function Trains() {
             ))}
         </TrainingCardWrapper>
     )
-} 
+}

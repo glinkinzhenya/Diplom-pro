@@ -26,11 +26,11 @@ export default function CreateModal({
                         image={imageSrc}
                         title='green iguana'
                     />
-                    <CardContent>
-                        <Typography gutterBottom variant='h5' component='div'>
+                    <CardContent sx={{ background: 'black' }}>
+                        <Typography gutterBottom variant='h5' color='white' component='div'>
                             {trainingName}
                         </Typography>
-                        <Typography variant='body2' color='text.secondary'>
+                        <Typography variant='body2' color='grey'>
                             {info}
                         </Typography>
                     </CardContent>
