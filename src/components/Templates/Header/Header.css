@@ -4,3 +4,12 @@ input {
     padding: 10px;
     border: none;
 }
+
+.headerButton {
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    opacity: 0.4;
+}

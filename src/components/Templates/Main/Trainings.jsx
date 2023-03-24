@@ -11,6 +11,8 @@ const TrainingCardWrapper = styled(Box)(() => ({
     justifyContent: 'flex-start',
 }));
 
+export let trainings = '';
+
 
 export default function Trains() {
     const [trainingsData, setClasses] = useState([]);
@@ -25,6 +27,8 @@ export default function Trains() {
             }
         })();
     }, [])
+
+    trainings = trainingsData;
 
 
 
@@ -42,3 +46,5 @@ export default function Trains() {
         </TrainingCardWrapper>
     )
 }
+
+

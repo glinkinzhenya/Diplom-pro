@@ -1,7 +1,10 @@
-import React, { useEffect, useState }  from "react";
+import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import './Header.css';
-import { trainers } from "../../../api";
+import { trainings } from "../Main/Trainings";
+import CreateModal from "../../Main/CreateModal";
+
+console.log(trainings);
 
 export default function Header() {
     const [inputWidth, setInputWidth] = useState('120px');
@@ -14,20 +17,31 @@ export default function Header() {
         setInputWidth('120px');
     };
 
-    const [trainersData, setClasses] = useState([]);
 
-    useEffect(() => {
-        (async () => {
-            try {
-                const { data } = await trainers.fetch();
-                setClasses(data);
-            } catch (err) {
-                console.log(err);
-            }
-        })();
-    }, [])
+    const [inputValue, setInputValue] = useState('');
 
-    console.log(trainersData);
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value);
+    };
+
+
+    const handleButtonClick = () => {
+        // Обработка нажатия кнопки "ОК"
+        console.log(inputValue);
+
+
+        {
+            trainings.map(i => {
+                if (i.name === inputValue) {
+                    console.log(inputValue)
+                    console.log(i.info);
+                    setOpenModal(true)
+                }
+            })
+        }
+    }
+
+    const [open, setOpenModal] = useState(false);
 
     return (
         <>
@@ -38,11 +52,21 @@ export default function Header() {
                 <input
                     onClick={handleFocus}
                     onBlur={handleBlur}
+                    value={inputValue}
+                    onChange={handleInputChange}
                     style={{ width: inputWidth, transition: 'width 0.2s ease-in-out' }}
                     type="text"
                     placeholder="Пошук тренування"
                 />
+                <button className="headerButton" onClick={handleButtonClick}>Пошук</button>
             </div>
+            <CreateModal
+                open={open}
+                handleOnClose={() => setOpenModal(false)}
+                imageSrc={imageSrc}
+                trainingName={trainingName}
+                info={info}
+            />
         </>
     );
 }
