@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import './Header.css';
 import { trainings } from "../Main/Trainings";
-import CreateModal from "../../Main/CreateModal";
 
 console.log(trainings);
 
@@ -16,7 +15,6 @@ export default function Header() {
     const handleBlur = () => {
         setInputWidth('120px');
     };
-
 
     const [inputValue, setInputValue] = useState('');
 
@@ -35,13 +33,10 @@ export default function Header() {
                 if (i.name === inputValue) {
                     console.log(inputValue)
                     console.log(i.info);
-                    setOpenModal(true)
                 }
             })
         }
     }
-
-    const [open, setOpenModal] = useState(false);
 
     return (
         <>
@@ -60,13 +55,6 @@ export default function Header() {
                 />
                 <button className="headerButton" onClick={handleButtonClick}>Пошук</button>
             </div>
-            <CreateModal
-                open={open}
-                handleOnClose={() => setOpenModal(false)}
-                imageSrc={imageSrc}
-                trainingName={trainingName}
-                info={info}
-            />
         </>
     );
 }

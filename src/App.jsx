@@ -1,11 +1,10 @@
 import React from 'react';
-import { Box, Grid, Item, styled } from '@mui/material';
-import Header from './components/Templates/Header/Header'
-import Footer from './components/Templates/Footer/Footer'
-import NavBar from './components/Templates/NavBar/NavBar'
-import Trains from './components/Templates/Main/Trainings'
+import { Box, Grid, styled } from '@mui/material';
+import Header from './components/Templates/Header/Header';
+import Footer from './components/Templates/Footer/Footer';
+import NavBar from './components/Templates/NavBar/NavBar';
+import Trains from './components/Templates/Main/Trainings';
 import './App.css';
-import { padding } from '@mui/system';
 
 const HeaderWrapper = styled(Box)(() => ({
   height: '15vh',
@@ -45,7 +44,6 @@ const FooterWrapper = styled(Box)(() => ({
   background: 'rgba(0, 0, 0, 0.404)',
 }));
 
-
 function App() {
   return (
     <div className='App'>
@@ -55,7 +53,7 @@ function App() {
             <Header />
           </HeaderWrapper>
         </Grid>
-        <Grid item sm={2} md={2} lg={2} display={{ xs: "none", sm: "block" }}>
+        <Grid item sm={2} md={2} lg={2} display={{ xs: 'none', sm: 'block' }}>
           <NavBarWrapper>
             <NavBar />
           </NavBarWrapper>
