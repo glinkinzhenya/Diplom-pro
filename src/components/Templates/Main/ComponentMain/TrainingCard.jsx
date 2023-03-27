@@ -11,16 +11,19 @@ import CreateModal from './CreateModal';
 import { Link } from 'react-router-dom';
 import NameNextPage from '../../../NameNextPage';
 
+export let nameButton = null;
+
 
 export default function TreiningCard({ trainingName, imageSrc, info }) {
   const [open, setOpenModal] = useState(false);
 
 
 
-  // const startQuiz = () => {
-  //   console.log('Quiz started');
-  //   alert('Quiz started');
-  // };
+  const startQuiz = () => {
+    console.log('Quiz started');
+   
+    nameButton = trainingName;
+  };
 
   console.log(trainingName);
   // split преобразеут строку в массив
@@ -52,17 +55,15 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
         <CardActions>
           {/* <Button sx={{ fontSize: '11px' }} size='small' onClick={startQuiz}>Записатись</Button> */}
           
-          <Button sx={{ fontSize: '11px' }} size="small">
+          <Button onClick={startQuiz} sx={{ fontSize: '11px' }} size="small">
             <Link
               style={{ textDecoration: 'none', color: 'inherit' }}
               to={`/test/${newTrainingName}`}
-              // imageSrc={imageSrc}
-              trainingName={trainingName}
-              // info={info}
+              
             >
               Открыть
             </Link>
-         
+           
           </Button>
 
           

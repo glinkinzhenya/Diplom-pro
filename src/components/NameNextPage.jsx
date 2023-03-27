@@ -1,17 +1,30 @@
 import React from 'react';
-//import { testName } from './Templates/Main/ComponentMain/TrainingCard';
+import { trainings } from './Templates/Main/Main';
+import { nameButton } from './Templates/Main/ComponentMain/TrainingCard';
 
-//console.log(testName);
 
-export default function NameNextPage({ trainingName, imageSrc, info }) {
-    console.log(trainingName);
+
+
+export default function NameNextPage() {
+    console.log(trainings);
+    let data = null;
+
+    console.log(nameButton);
+    {
+        trainings.map(i => {
+            if (i.name === nameButton) {
+                console.log(i.name);
+                console.log(i.info);
+                data = i;
+            }
+        });
+    }
+
     return (
-        <>
-            
-            <h1>test</h1>
-            <h1>{trainingName}</h1>
 
-           
+        <>
+            <h1>{data.name}</h1>
+            <h2>{data.info}</h2>
         </>
     );
 }
