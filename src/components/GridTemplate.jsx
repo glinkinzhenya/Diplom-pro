@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, Grid, styled } from '@mui/material';
-import Header from './Header/Header';
-import Footer from './components/Templates/Footer/Footer';
-import NavBar from './components/Templates/NavBar/NavBar';
-import Trains from './components/Templates/Main/Trainings';
-import './App.css';
+import Header from './Templates/Header/Header';
+import Footer from './Templates/Footer/Footer';
+import NavBar from './Templates/NavBar/NavBar';
+
+import './GridTemplate.css';
 
 const HeaderWrapper = styled(Box)(() => ({
     height: '15vh',
@@ -44,9 +44,9 @@ const FooterWrapper = styled(Box)(() => ({
     background: 'rgba(0, 0, 0, 0.404)',
 }));
 
-function App() {
+export default function GridTemplate({ children }) {
     return (
-        <div className='App'>
+        <div className='GridTemplate'>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={12} lg={12}>
                     <HeaderWrapper>
@@ -60,7 +60,7 @@ function App() {
                 </Grid>
                 <Grid item xs={12} sm={10} md={10} lg={10}>
                     <BodyWrapper>
-                        <Trains />
+                        {children}
                     </BodyWrapper>
                 </Grid>
                 <Grid item xs={12} md={12} lg={12}>
@@ -73,4 +73,3 @@ function App() {
     );
 }
 
-export default App;

@@ -38,6 +38,10 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
         </CardContent>
         <CardActions>
           <Button sx={{ fontSize: '11px' }} size='small' onClick={startQuiz}>Записатись</Button>
+
+
+
+          
           <Button sx={{ fontSize: '11px', color: 'white' }} size='small'
             onClick={() => setOpenModal(true)}>Дізнатись більше</Button>
         </CardActions>
