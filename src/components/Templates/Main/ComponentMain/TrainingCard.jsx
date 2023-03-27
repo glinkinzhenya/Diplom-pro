@@ -21,13 +21,13 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
 
   const startQuiz = () => {
     console.log('Quiz started');
-   
+
     nameButton = trainingName;
   };
 
   console.log(trainingName);
   // split преобразеут строку в массив
-// join объединяет в строку
+  // join объединяет в строку
   const newTrainingName = trainingName.split(' ').join('_').toLowerCase();
 
   //console.log(trainingName.split(' '));
@@ -39,6 +39,7 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
         width: 250,
         background: 'rgba(0, 0, 0, 0.550)',
         color: 'white',
+        borderRadius: '13px',
       }}>
         <CardMedia
           sx={{ height: 150 }}
@@ -54,19 +55,19 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
         </CardContent>
         <CardActions>
           {/* <Button sx={{ fontSize: '11px' }} size='small' onClick={startQuiz}>Записатись</Button> */}
-          
+
           <Button onClick={startQuiz} sx={{ fontSize: '11px' }} size="small">
             <Link
               style={{ textDecoration: 'none', color: 'inherit' }}
               to={`/test/${newTrainingName}`}
-              
+
             >
               Открыть
             </Link>
-           
+
           </Button>
 
-          
+
           <Button sx={{ fontSize: '11px', color: 'white' }} size='small'
             onClick={() => setOpenModal(true)}>Дізнатись більше</Button>
         </CardActions>
@@ -79,7 +80,7 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
         info={info}
       />
 
-   
+
 
 
     </>

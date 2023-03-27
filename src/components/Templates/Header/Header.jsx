@@ -47,7 +47,7 @@ export default function Header() {
           type='text'
           placeholder='Пошук тренування'
         />
-        <button className='headerButton' onClick={handleButtonClick}>Пошук</button>
+        <button className='headerButton' onClick={handleButtonClick}>ОК</button>
       </div>
     </>
   );
