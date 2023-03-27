@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Typography } from '@mui/material';
 import './Header.css';
-import { trainings } from '../Main/Trainings';
+import { trainings } from '../Main/Main';
 
 export default function Header() {
   const [inputWidth, setInputWidth] = useState('120px');

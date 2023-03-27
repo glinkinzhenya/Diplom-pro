@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, styled } from '@mui/material';
 import { trainers } from '../../../api';
-import Rating from '../../NavBar/Rating';
+import Rating from './ComponentNavBar/Rating';
 import './NavBar.css';
 
 const NavBarWrapper = styled(Box)(() => ({

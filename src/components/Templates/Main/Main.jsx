@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import TrainingCard from '../../Main/TrainingCard';
+import TrainingCard from './ComponentMain/TrainingCard';
 import { Box, styled } from '@mui/system';
 import { classes } from '../../../api';
 

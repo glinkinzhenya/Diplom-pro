@@ -3,7 +3,7 @@ import { Box, Grid, styled } from '@mui/material';
 import Header from './components/Templates/Header/Header';
 import Footer from './components/Templates/Footer/Footer';
 import NavBar from './components/Templates/NavBar/NavBar';
-import Trains from './components/Templates/Main/Trainings';
+import Main from './components/Templates/Main/Main';
 import './App.css';
 
 const HeaderWrapper = styled(Box)(() => ({
@@ -60,7 +60,7 @@ function App() {
         </Grid>
         <Grid item xs={12} sm={10} md={10} lg={10}>
           <BodyWrapper>
-            <Trains />
+            <Main />
           </BodyWrapper>
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
