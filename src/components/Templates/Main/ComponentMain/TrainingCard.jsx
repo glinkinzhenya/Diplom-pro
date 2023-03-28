@@ -60,7 +60,6 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
             <Link
               style={{ textDecoration: 'none', color: 'inherit' }}
               to={`/test/${newTrainingName}`}
-
             >
               Открыть
             </Link>
