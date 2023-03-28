@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { trainings } from './Templates/Main/Main';
-import { nameButton } from './Templates/Main/ComponentMain/TrainingCard';
+// import { trainings } from './Templates/Main/Main';
+// import { nameButton } from './Templates/Main/ComponentMain/TrainingCard';
 import './NameNextPage.css';
 import { Button } from '@mui/material';
 
@@ -10,8 +10,18 @@ export default function NameNextPage() {
   let data = null;
   let time = [];
 
+  const name = localStorage.getItem("newTrainings"); 
+
+  let newName = JSON.parse(name);
+
+  console.log(newName);
+
+
+  const nameButton = localStorage.getItem("trainingName"); 
+
   {
-    trainings.map(i => {
+    newName.map(i => {
+      console.log(i);
       if (i.name === nameButton) {
         data = i;
       }
@@ -19,6 +29,7 @@ export default function NameNextPage() {
   }
 
   // Получаем ключи с Днями
+  console.log(data);
   const keys = Object.keys(data.days);
 
 

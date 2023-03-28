@@ -9,7 +9,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path='*' element={<NotFound />} />
-          <Route path='/test/*' element={<NextPage />} />
+          <Route path='/gym_team/*' element={<NextPage />} />
       </Routes>
       </BrowserRouter>
     </div>

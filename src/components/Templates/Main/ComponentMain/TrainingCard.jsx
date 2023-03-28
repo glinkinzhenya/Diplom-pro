@@ -11,7 +11,7 @@ import CreateModal from './CreateModal';
 import { Link } from 'react-router-dom';
 import NameNextPage from '../../../NameNextPage';
 
-export let nameButton = null;
+// export let nameButton = null;
 
 
 export default function TreiningCard({ trainingName, imageSrc, info }) {
@@ -22,7 +22,9 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
   const startQuiz = () => {
     console.log('Quiz started');
 
-    nameButton = trainingName;
+    localStorage.setItem("trainingName", trainingName);
+
+
   };
 
   console.log(trainingName);
@@ -59,7 +61,7 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
           <Button onClick={startQuiz} sx={{ fontSize: '11px' }} size="small">
             <Link
               style={{ textDecoration: 'none', color: 'inherit' }}
-              to={`/test/${newTrainingName}`}
+              to={`/gym_team/${newTrainingName}`}
             >
               Открыть
             </Link>
