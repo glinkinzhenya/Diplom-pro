@@ -47,12 +47,15 @@ export default function NameNextPage() {
   const [selectedOption2, setSelectedOption2] = useState("");
   const [options2Disabled, setOptions2Disabled] = useState(true);
 
+  const [huy, set] = useState([]);
+
+  
 
   const handleOption1Change = (e) => {
     setSelectedOption1(e.target.value);
 
     time = data.days[e.target.value];
-
+    set(time)
     console.log(time);
 
     setOptions2Disabled(false);
@@ -103,7 +106,7 @@ export default function NameNextPage() {
 
           <select value={selectedOption2} onChange={handleOption2Change} disabled={options2Disabled}>
             <option value="">Обрати час</option>
-            {time.map((option) => (
+            {huy.map((option) => (
               <option key={option} value={option}>
                 {option}
               </option>
