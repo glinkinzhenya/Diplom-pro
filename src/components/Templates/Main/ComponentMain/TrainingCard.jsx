@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import CreateModal from './CreateModal';
 import { Link } from 'react-router-dom';
-import NameNextPage from '../../../NameNextPage';
+import NameNextPage from './NameNextPage';
 
 // export let nameButton = null;
 

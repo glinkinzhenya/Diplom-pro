@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import GridTemplate from './GridTemplate';
 import Main from './Templates/Main/Main';
-import NameNextPage from './NameNextPage';
+import NameNextPage from './Templates/Main/ComponentMain/NameNextPage';
 
 export default function NextPage() {
   return (

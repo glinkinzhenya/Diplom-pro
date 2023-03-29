@@ -7,7 +7,7 @@ import NavBar from './Templates/NavBar/NavBar';
 import './GridTemplate.css';
 
 const HeaderWrapper = styled(Box)(() => ({
-    height: '15vh',
+    height: '14vh',
     borderRadius: '20px',
     display: 'flex',
     alignItems: 'center',
@@ -19,7 +19,7 @@ const HeaderWrapper = styled(Box)(() => ({
 
 const NavBarWrapper = styled(Box)(() => ({
     borderRadius: '20px',
-    height: '67.6vh',
+    height: '68.6vh',
     backdropFilter: 'blur(5px)',
     background: 'rgba(0, 0, 0, 0.404)',
 }));
@@ -28,7 +28,7 @@ const BodyWrapper = styled(Box)(() => ({
     backdropFilter: 'blur(5px)',
     background: 'rgba(0, 0, 0, 0.404)',
     borderRadius: '20px',
-    height: '67.5vh',
+    height: '68.5vh',
     overflow: 'auto',
 }));
 
