@@ -19,15 +19,15 @@ body {
 }
 
 .header-title {
-color: white;
-font-weight: 500;
-font-size: 45px;
+    color: white;
+    font-weight: 500;
+    font-size: 45px;
 }
 
 @media (max-width: 768.8px) {
 
-.header-title {
-     
+    .header-title {
+
         font-size: 35px;
     }
 
@@ -36,7 +36,7 @@ font-size: 45px;
 @media (max-width: 576.8px) {
 
     .header-title {
-      
+
         font-size: 25px;
     }
 

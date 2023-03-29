@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
-import { trainings } from '../Main/Main';
+// import { trainings } from '../Main/Main';
 
 export default function Header() {
   const [inputWidth, setInputWidth] = useState('120px');
@@ -19,17 +19,17 @@ export default function Header() {
     setInputValue(e.target.value);
   };
 
-  const handleButtonClick = () => {
-    // Обработка нажатия кнопки 'ОК'
-    {
-      trainings.map(i => {
-        if (i.name === inputValue) {
-          console.log(inputValue);
-          console.log(i.info);
-        }
-      });
-    }
-  };
+  // const handleButtonClick = () => {
+  //   // Обработка нажатия кнопки 'ОК'
+  //   {
+  //     trainings.map(i => {
+  //       if (i.name === inputValue) {
+  //         console.log(inputValue);
+  //         console.log(i.info);
+  //       }
+  //     });
+  //   }
+  // };
 
   return (
     <>
@@ -44,8 +44,10 @@ export default function Header() {
           type='text'
           placeholder='Пошук тренування'
         />
-        <button className='headerButton' onClick={handleButtonClick}>ОК</button>
+        <button className='headerButton' >ОК</button>
       </div>
     </>
   );
 }
+// onClick={handleButtonClick}
+// это для button

@@ -8,8 +8,4 @@ const trainers = {
   fetch: () => axios.get('/trainers').then((data) => data),
 };
 
-
-
-
-
 export { classes, trainers };

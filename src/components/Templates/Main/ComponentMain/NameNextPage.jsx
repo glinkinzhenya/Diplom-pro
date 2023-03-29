@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from 'react';
-// import { trainings } from './Templates/Main/Main';
-// import { nameButton } from './Templates/Main/ComponentMain/TrainingCard';
 import './NameNextPage.css';
 import { Button } from '@mui/material';
 import CreateModal from './CreateModal';
 
-
 export default function NameNextPage() {
-
   let data = null;
   let time = [];
 
-  const name = localStorage.getItem("newTrainings");
+  const name = localStorage.getItem('newTrainings');
 
-  let newName = JSON.parse(name);
+  const newName = JSON.parse(name);
 
-
-  const nameButton = localStorage.getItem("trainingName");
+  const nameButton = localStorage.getItem('trainingName');
 
   {
-    newName.map(i => {
-      console.log(i);
+    newName.map((i) => {
       if (i.name === nameButton) {
-        data = i;
+         data = i;
       }
     });
   }
@@ -30,18 +24,17 @@ export default function NameNextPage() {
   // Получаем ключи с Днями
   const keys = Object.keys(data.days);
 
-
-
   // Таймер
   const [timeLeft, setTimeLeft] = useState(600);
   useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(timeLeft - 1);
+    }, 1000);
+
     if (timeLeft <= 0) {
       // таймер истек
       clearInterval(timer);
     }
-    const timer = setInterval(() => {
-      setTimeLeft(timeLeft - 1);
-    }, 1000);
 
     return () => clearInterval(timer);
   }, [timeLeft]);
@@ -49,23 +42,18 @@ export default function NameNextPage() {
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
 
-
-
   // Выбор дня и времени
-  const [selectedOption1, setSelectedOption1] = useState("");
-  const [selectedOption2, setSelectedOption2] = useState("");
+  const [selectedOption1, setSelectedOption1] = useState('');
+  const [selectedOption2, setSelectedOption2] = useState('');
   const [options2Disabled, setOptions2Disabled] = useState(true);
 
   const [dataTime, setDataTime] = useState([]);
-
-
 
   const handleOption1Change = (e) => {
     setSelectedOption1(e.target.value);
 
     time = data.days[e.target.value];
-    setDataTime(time)
-    console.log(time);
+    setDataTime(time);
 
     setOptions2Disabled(false);
   };
@@ -76,34 +64,26 @@ export default function NameNextPage() {
 
   const [open, setOpenModal] = useState(false);
 
-
   return (
 
     <>
 
       <div className='block'>
         {
-          data.gallery.map((i) => (
-            <div className='wrapper'>
-              <img src={i} alt="" />
-            </div>
+          data.gallery.map((i, index) => (
+            <div key={index} className='wrapper'><img src={i} alt=''/></div>
           ))
         }
       </div>
-      <h2 className="title">{data.fullInfo}</h2>
-
-
-
+      <h2 className='title'>{data.fullInfo}</h2>
       <div className='input_form'>
-
         <div className='input_form_text'>
-          <input type="text" placeholder='Ім`я' />
-          <input type="number" placeholder='Телефон' />
+          <input type='text' placeholder='Ім`я' />
+          <input type='number' placeholder='Телефон' />
         </div>
         <div className='formControl'>
-
           <select value={selectedOption1} onChange={handleOption1Change}>
-            <option value="">Обрати день</option>
+            <option value=''>Обрати день</option>
             {keys.map((option) => (
               <option key={option} value={option}>
                 {option}
@@ -111,7 +91,7 @@ export default function NameNextPage() {
             ))}
           </select>
           <select value={selectedOption2} onChange={handleOption2Change} disabled={options2Disabled}>
-            <option value="">Обрати час</option>
+            <option value=''>Обрати час</option>
             {dataTime.map((option) => (
               <option key={option} value={option}>
                 {option}
@@ -122,14 +102,11 @@ export default function NameNextPage() {
         <div className='formControl-day'>
           <p>Ви обрали день: {selectedOption1}</p>
           <p>та час: {selectedOption2}</p>
-
-          
         </div>
-
         <div>
           <p className='time'>Встигни записатись на тренування: {minutes}:{seconds < 10 ? '0' : ''}{seconds}</p>
         </div>
-        <Button disabled={options2Disabled} onClick={() => setOpenModal(true)} sx={{ fontSize: '11px', border: '1px solid' }} size="small">Надіслати</Button>
+        <Button disabled={options2Disabled} onClick={() => setOpenModal(true)} sx={{ fontSize: '11px', border: '1px solid' }} size='small'>Надіслати</Button>
       </div>
       <CreateModal
         open={open}
@@ -138,8 +115,6 @@ export default function NameNextPage() {
         trainingName={`Ви обрали день: ${selectedOption1}`}
         info={`в ${selectedOption2} чекаємо Вас у нашому клубі!`}
       />
-
-
     </>
   );
 }

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import {
+  Box,
+  styled,
+} from '@mui/system';
 import TrainingCard from './ComponentMain/TrainingCard';
-import { Box, styled } from '@mui/system';
 import { classes } from '../../../api';
 
 const TrainingCardWrapper = styled(Box)(() => ({
@@ -29,8 +32,8 @@ export default function Trains() {
 
   trainings = trainingsData;
 
-  let newTrainings = JSON.stringify(trainingsData);
-  localStorage.setItem("newTrainings", newTrainings);
+  const newTrainings = JSON.stringify(trainingsData);
+  localStorage.setItem('newTrainings', newTrainings);
 
   return (
     <TrainingCardWrapper>

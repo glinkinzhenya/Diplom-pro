@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardActions,
@@ -8,32 +9,15 @@ import {
   Typography,
 } from '@mui/material';
 import CreateModal from './CreateModal';
-import { Link } from 'react-router-dom';
-import NameNextPage from './NameNextPage';
-
-// export let nameButton = null;
-
 
 export default function TreiningCard({ trainingName, imageSrc, info }) {
   const [open, setOpenModal] = useState(false);
 
-
-
   const startQuiz = () => {
-    console.log('Quiz started');
-
-    localStorage.setItem("trainingName", trainingName);
-
-
+    localStorage.setItem('trainingName', trainingName);
   };
 
-  console.log(trainingName);
-  // split преобразеут строку в массив
-  // join объединяет в строку
   const newTrainingName = trainingName.split(' ').join('_').toLowerCase();
-
-  //console.log(trainingName.split(' '));
-  //console.log(newTrainingName);
 
   return (
     <>
@@ -56,18 +40,14 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
           </Typography>
         </CardContent>
         <CardActions>
-          {/* <Button sx={{ fontSize: '11px' }} size='small' onClick={startQuiz}>Записатись</Button> */}
-
-          <Button onClick={startQuiz} sx={{ fontSize: '11px' }} size="small">
+          <Button onClick={startQuiz} sx={{ fontSize: '11px' }} size='small'>
             <Link
               style={{ textDecoration: 'none', color: 'inherit' }}
               to={`/gym_team/${newTrainingName}`}
             >
               Открыть
             </Link>
-
           </Button>
-
 
           <Button sx={{ fontSize: '11px', color: 'white' }} size='small'
             onClick={() => setOpenModal(true)}>Дізнатись більше</Button>
@@ -80,10 +60,6 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
         trainingName={trainingName}
         info={info}
       />
-
-
-
-
     </>
   );
 }

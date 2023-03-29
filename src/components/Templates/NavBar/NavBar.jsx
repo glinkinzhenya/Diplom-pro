@@ -29,7 +29,7 @@ export default function Navbar() {
       <h2 className='popularPrograms'>Популяні тренери</h2>
       {trainersData.map((trainers) => (
         <div key={trainers.id} className='trainer'>
-          <img src={trainers.img} />
+          <img src={trainers.img} alt=''/>
           <div >{trainers.name}</div>
           <Rating
             key={trainers.id}
