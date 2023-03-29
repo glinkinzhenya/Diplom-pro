@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 // import { nameButton } from './Templates/Main/ComponentMain/TrainingCard';
 import './NameNextPage.css';
 import { Button } from '@mui/material';
+import CreateModal from './CreateModal';
 
 
 export default function NameNextPage() {
@@ -13,8 +14,6 @@ export default function NameNextPage() {
   const name = localStorage.getItem("newTrainings");
 
   let newName = JSON.parse(name);
-
-  console.log(newName);
 
 
   const nameButton = localStorage.getItem("trainingName");
@@ -29,7 +28,6 @@ export default function NameNextPage() {
   }
 
   // Получаем ключи с Днями
-  console.log(data);
   const keys = Object.keys(data.days);
 
 
@@ -58,7 +56,7 @@ export default function NameNextPage() {
   const [selectedOption2, setSelectedOption2] = useState("");
   const [options2Disabled, setOptions2Disabled] = useState(true);
 
-  const [huy, set] = useState([]);
+  const [dataTime, setDataTime] = useState([]);
 
 
 
@@ -66,7 +64,7 @@ export default function NameNextPage() {
     setSelectedOption1(e.target.value);
 
     time = data.days[e.target.value];
-    set(time)
+    setDataTime(time)
     console.log(time);
 
     setOptions2Disabled(false);
@@ -75,6 +73,9 @@ export default function NameNextPage() {
   const handleOption2Change = (e) => {
     setSelectedOption2(e.target.value);
   };
+
+  const [open, setOpenModal] = useState(false);
+
 
   return (
 
@@ -111,7 +112,7 @@ export default function NameNextPage() {
           </select>
           <select value={selectedOption2} onChange={handleOption2Change} disabled={options2Disabled}>
             <option value="">Обрати час</option>
-            {huy.map((option) => (
+            {dataTime.map((option) => (
               <option key={option} value={option}>
                 {option}
               </option>
@@ -128,8 +129,15 @@ export default function NameNextPage() {
         <div>
           <p className='time'>Встигни записатись на тренування: {minutes}:{seconds < 10 ? '0' : ''}{seconds}</p>
         </div>
-        <Button sx={{ fontSize: '11px', border: '1px solid' }} size="small">Надіслати</Button>
+        <Button disabled={options2Disabled} onClick={() => setOpenModal(true)} sx={{ fontSize: '11px', border: '1px solid' }} size="small">Надіслати</Button>
       </div>
+      <CreateModal
+        open={open}
+        handleOnClose={() => setOpenModal(false)}
+        imageSrc={data.image}
+        trainingName={`Ви обрали день: ${selectedOption1}`}
+        info={`в ${selectedOption2} чекаємо Вас у нашому клубі!`}
+      />
 
 
     </>
