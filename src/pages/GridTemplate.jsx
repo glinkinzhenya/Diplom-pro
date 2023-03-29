@@ -53,12 +53,12 @@ export default function GridTemplate({ children }) {
                         <Header />
                     </HeaderWrapper>
                 </Grid>
-                <Grid item sm={2} md={2} lg={2} display={{ xs: 'none', sm: 'block' }}>
+                <Grid item md={2} lg={2} display={{ xs: 'none', sm: 'none', md: 'block' }}>
                     <NavBarWrapper>
                         <NavBar />
                     </NavBarWrapper>
                 </Grid>
-                <Grid item xs={12} sm={10} md={10} lg={10}>
+                <Grid item xs={12} sm={12} md={10} lg={10}>
                     <BodyWrapper>
                         {children}
                     </BodyWrapper>

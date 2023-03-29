@@ -91,44 +91,46 @@ export default function NameNextPage() {
       </div>
       <h2 className="title">{data.fullInfo}</h2>
 
-      <div className='position'>
-        <p className='time'>Встигни записатись на тренування: {minutes}:{seconds < 10 ? '0' : ''}{seconds}</p>
-      </div>
+
 
       <div className='input_form'>
-      
-          <div className='input_form_text'>
-            <input type="text" placeholder='Ім`я' />
-            <input type="number" placeholder='Телефон' />
-          </div>
-          <div className='formControl'>
 
-            <select value={selectedOption1} onChange={handleOption1Change}>
-              <option value="">Обрати день</option>
-              {keys.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-            <select value={selectedOption2} onChange={handleOption2Change} disabled={options2Disabled}>
-              <option value="">Обрати час</option>
-              {huy.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className='formControl-day'>
-            <p>Ви обрали день: {selectedOption1}</p>
-            <p>та час: {selectedOption2}</p>
+        <div className='input_form_text'>
+          <input type="text" placeholder='Ім`я' />
+          <input type="number" placeholder='Телефон' />
+        </div>
+        <div className='formControl'>
 
-            <Button sx={{ fontSize: '11px' }} size="small">Надіслати</Button>
-          </div>
-      
+          <select value={selectedOption1} onChange={handleOption1Change}>
+            <option value="">Обрати день</option>
+            {keys.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+          <select value={selectedOption2} onChange={handleOption2Change} disabled={options2Disabled}>
+            <option value="">Обрати час</option>
+            {huy.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className='formControl-day'>
+          <p>Ви обрали день: {selectedOption1}</p>
+          <p>та час: {selectedOption2}</p>
 
+          
+        </div>
+
+        <div>
+          <p className='time'>Встигни записатись на тренування: {minutes}:{seconds < 10 ? '0' : ''}{seconds}</p>
+        </div>
+        <Button sx={{ fontSize: '11px', border: '1px solid' }} size="small">Надіслати</Button>
       </div>
+
 
     </>
   );

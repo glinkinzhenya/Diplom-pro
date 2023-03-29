@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Typography } from '@mui/material';
 import './Header.css';
 import { trainings } from '../Main/Main';
 
@@ -34,9 +33,7 @@ export default function Header() {
 
   return (
     <>
-      <Typography variant='h3' component='h2' color='white'>
-        Gym Team
-      </Typography>
+      <h1 className='header-title'>Gym Team</h1>
       <div>
         <input
           onClick={handleFocus}
