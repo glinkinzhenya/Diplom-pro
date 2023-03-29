@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Grid, styled } from '@mui/material';
-import Header from './Templates/Header/Header';
-import Footer from './Templates/Footer/Footer';
-import NavBar from './Templates/NavBar/NavBar';
+import Header from '../components/Templates/Header/Header';
+import Footer from '../components/Templates/Footer/Footer';
+import NavBar from '../components/Templates/NavBar/NavBar';
 
 import './GridTemplate.css';
 

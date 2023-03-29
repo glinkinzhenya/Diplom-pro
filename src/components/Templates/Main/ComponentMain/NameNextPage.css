@@ -46,34 +46,52 @@
     border-radius: 20px;
     margin: 20px;
     background: rgb(0 0 0 / 61%);
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     padding: 15px;
 }
 
 .input_form>input {
-background-color: rgba(255, 255, 255, 0.238);
-width: 300px;
-margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.238);
+    width: 300px;
+    margin-bottom: 10px;
 }
 
 .input_form>input::placeholder {
- color: black;
+    color: black;
 }
 
 .input_form>button {
-width: 100px;
-cursor: pointer;
+    width: 100px;
+    cursor: pointer;
 }
 
 .formControl {
-display: flex;
-color: white;
-    flex-direction: column;
+    margin-top: 10px;
+    display: flex;
+    color: white;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .input_form_text {
-display: flex;
-flex-direction: column;
-gap: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.formControl-day {
+    color: white;
+
+}
+
+.formControl>select {
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    width: 158px;
+}
+
+select:focus {
+    outline: none;
 }

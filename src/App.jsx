@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './pages/NotFound';
-import NextPage from './components/NextPage';
+import NextPage from './pages/NextPage';
 
 export default function App() {
   return (
