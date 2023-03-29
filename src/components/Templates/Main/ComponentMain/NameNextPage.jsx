@@ -83,7 +83,7 @@ export default function NameNextPage() {
         </div>
         <div className='formControl'>
           <select value={selectedOption1} onChange={handleOption1Change}>
-            <option value=''>Обрати день</option>
+            <option disabled selected value=''>Обрати день</option>
             {keys.map((option) => (
               <option key={option} value={option}>
                 {option}

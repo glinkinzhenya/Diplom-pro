@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import GridTemplate from './GridTemplate';
 import Main from '../components/Templates/Main/Main';
 import NameNextPage from '../components/Templates/Main/ComponentMain/NameNextPage';
+import Trainers from '../components/Templates/Main/Trainers/Trainers';
 
 export default function NextPage() {
   return (
@@ -16,6 +17,9 @@ export default function NextPage() {
 
         {/* /:name плавающий элемент */}
         <Route path='/:name' element={<NameNextPage />} />
+
+        {/* /:name плавающий элемент */}
+        <Route path='/trainers' element={<Trainers />} />
       </Routes>
     </GridTemplate>
   );

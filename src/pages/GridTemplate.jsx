@@ -15,21 +15,26 @@ const HeaderWrapper = styled(Box)(() => ({
   padding: '0px 30px',
   backdropFilter: 'blur(5px)',
   background: 'rgba(0, 0, 0, 0.404)',
+
+  margin: '1vh'
 }));
 
 const NavBarWrapper = styled(Box)(() => ({
   borderRadius: '20px',
-  height: '68.6vh',
+  height: '70vh',
   backdropFilter: 'blur(5px)',
   background: 'rgba(0, 0, 0, 0.404)',
+  marginLeft: '1vh'
 }));
 
 const BodyWrapper = styled(Box)(() => ({
   backdropFilter: 'blur(5px)',
   background: 'rgba(0, 0, 0, 0.404)',
   borderRadius: '20px',
-  height: '68.5vh',
+  height: '70vh',
   overflow: 'auto',
+  marginLeft: '1vh',
+  marginRight: '1vh'
 }));
 
 const FooterWrapper = styled(Box)(() => ({
@@ -39,15 +44,15 @@ const FooterWrapper = styled(Box)(() => ({
   borderRadius: '20px',
   justifyContent: 'space-between',
   padding: '0px 20px',
-
   backdropFilter: 'blur(5px)',
   background: 'rgba(0, 0, 0, 0.404)',
+  margin: '1vh'
 }));
 
 export default function GridTemplate({ children }) {
   return (
     <div className='GridTemplate'>
-      <Grid container spacing={2}>
+      <Grid container>
         <Grid item xs={12} md={12} lg={12}>
           <HeaderWrapper>
             <Header />

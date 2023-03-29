@@ -1,7 +1,8 @@
 .popularPrograms {
     color: grey;
-    font-size: 15px;
+    font-size: 18px;
     text-align: center;
+    margin-bottom: 50px;
 
 }
 
@@ -16,8 +17,30 @@
     align-items: center;
     margin-bottom: 20px;
 }
- 
+
 .trainer>div {
-color: white;
-padding: 3px;
+    color: white;
+    padding: 3px;
+}
+
+.item {
+    font-size: 15px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    border-radius: 10px;
+    border: 0.5px solid #0671dc;
+    padding: 10px;
+    cursor: pointer;
+    min-width: 150px;
+    background-color: transparent;
+}
+
+.item>a {
+ text-decoration: none;
+ color: white;
+}
+
+.item:hover {
+    border: 1px solid #0671dc;
+
 }

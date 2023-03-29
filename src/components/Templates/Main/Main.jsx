@@ -10,8 +10,9 @@ const TrainingCardWrapper = styled(Box)(() => ({
   display: 'flex',
   flexWrap: 'wrap',
   gap: '20px',
-  padding: '20px',
+  padding: '15px',
   justifyContent: 'flex-start',
+  
 }));
 
 export let trainings = [];

@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import CreateModal from './CreateModal';
 
-export default function TreiningCard({ trainingName, imageSrc, info }) {
+export default function TreiningCard({ trainingName, imageSrc, info, on }) {
   const [open, setOpenModal] = useState(false);
 
   const startQuiz = () => {
@@ -18,6 +18,8 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
   };
 
   const newTrainingName = trainingName.split(' ').join('_').toLowerCase();
+
+
 
   return (
     <>
@@ -37,17 +39,21 @@ export default function TreiningCard({ trainingName, imageSrc, info }) {
           </Typography>
           <Typography variant='body2' color='grey'>
             {info.slice(0, 40)}...
+
           </Typography>
         </CardContent>
         <CardActions>
-          <Button onClick={startQuiz} sx={{ fontSize: '11px' }} size='small'>
-            <Link
-              style={{ textDecoration: 'none', color: 'inherit' }}
-              to={`/gym_team/${newTrainingName}`}
-            >
-              Открыть
-            </Link>
-          </Button>
+          {
+            !on &&
+            <Button onClick={startQuiz} sx={{ fontSize: '11px' }} size='small'>
+              <Link
+                style={{ textDecoration: 'none', color: 'inherit' }}
+                to={`/gym_team/${newTrainingName}`}
+              >
+                Открыть
+              </Link>
+            </Button>
+          }
 
           <Button sx={{ fontSize: '11px', color: 'white' }} size='small'
             onClick={() => setOpenModal(true)}>Дізнатись більше</Button>
