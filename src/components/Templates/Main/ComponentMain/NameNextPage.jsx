@@ -16,7 +16,7 @@ export default function NameNextPage() {
   {
     newName.map((i) => {
       if (i.name === nameButton) {
-         data = i;
+        data = i;
       }
     });
   }
@@ -71,7 +71,7 @@ export default function NameNextPage() {
       <div className='block'>
         {
           data.gallery.map((i, index) => (
-            <div key={index} className='wrapper'><img src={i} alt=''/></div>
+            <div key={index} className='wrapper'><img src={i} alt='' /></div>
           ))
         }
       </div>
@@ -107,6 +107,7 @@ export default function NameNextPage() {
           <p className='time'>Встигни записатись на тренування: {minutes}:{seconds < 10 ? '0' : ''}{seconds}</p>
         </div>
         <Button disabled={options2Disabled} onClick={() => setOpenModal(true)} sx={{ fontSize: '11px', border: '1px solid' }} size='small'>Надіслати</Button>
+        <h2 className='card-name'>{data.name}</h2>
       </div>
       <CreateModal
         open={open}

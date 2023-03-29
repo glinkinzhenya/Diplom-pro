@@ -30,7 +30,7 @@
 
 .time {
     color: rgba(255, 255, 255, 0.739);
-    font-size: 15px;
+    font-size: 10px;
     padding: 0px;
 }
 
@@ -38,7 +38,7 @@
     max-width: 330px;
     border-radius: 20px;
     margin: 20px;
-    background: rgb(0 0 0 / 61%);
+    background: rgb(0 0 0 / 40%);
     padding: 15px;
 }
 
@@ -90,11 +90,22 @@ select:focus {
     outline: none;
 }
 
+.card-name {
+    color: white;
+    position: absolute;
+    right: 100px;
+    bottom: 70px;
+    font-size: 25vh;
+    opacity: 0.2;
+    margin: 0px;
+}
+
 @media (max-width: 992.8px) {
 
     .block {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .wrapper>img {
         max-height: 15vh;
     }
