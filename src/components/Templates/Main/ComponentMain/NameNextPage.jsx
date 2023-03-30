@@ -30,8 +30,6 @@ export default function NameNextPage() {
   // Получаем ключи с Днями
   const daysKeys = Object.keys(data.days);
 
-  console.log(data.days);
-
   
   // Таймер
   const [timeLeft, setTimeLeft] = useState(600);
