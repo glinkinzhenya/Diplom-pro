@@ -56,22 +56,19 @@ export default function NameNextPage() {
   const [selectedOption3, setSelectedOption3] = useState('');
   const [options2Disabled, setOptions2Disabled] = useState(true);
 
-  console.log(selectedOption1);
-  console.log(selectedOption2);
-  console.log(selectedOption3);
+
 
   const [dataTime, setDataTime] = useState({});
 
+
+
   const dataTimeKeys = Object.keys(dataTime);
-  console.log(dataTime);
-  console.log(dataTimeKeys);
+
 
   const handleOption1Change = (e) => {
     setSelectedOption1(e.target.value);
 
     time = data.days[e.target.value];
-    console.log(time);
-
 
     setDataTime(time);
    
@@ -81,8 +78,11 @@ export default function NameNextPage() {
   const handleOption2Change = (e) => {
     setSelectedOption2(e.target.value);
 
-
-    setSelectedOption3(dataTime[selectedOption2])
+    setSelectedOption3(dataTime[e.target.value])
+    console.log(e.target.value);
+    console.log(dataTime);
+    console.log(selectedOption2);
+    console.log(dataTime[selectedOption2]);
   };
 
   const [open, setOpenModal] = useState(false);
@@ -107,16 +107,16 @@ export default function NameNextPage() {
         <div className='formControl'>
           <select value={selectedOption1} onChange={handleOption1Change}>
             <option disabled selected value=''>Обрати день</option>
-            {daysKeys.map((option) => (
-              <option key={option} value={option}>
+            {daysKeys.map((option, index) => (
+              <option key={index} value={option}>
                 {option}
               </option>
             ))}
           </select>
           <select value={selectedOption2} onChange={handleOption2Change} disabled={options2Disabled}>
             <option value=''>Обрати час</option>
-            {dataTimeKeys.map((option) => (
-              <option key={option} value={option}>
+            {dataTimeKeys.map((option, index) => (
+              <option key={index} value={option}>
                 {option}
               </option>
             ))}
