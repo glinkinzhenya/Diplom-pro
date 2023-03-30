@@ -121,7 +121,7 @@ export default function NameNextPage() {
         <div className='formControl-day'>
           <p>Ви обрали день: {selectedOption1}</p>
           <p>та час: {selectedOption2}</p>
-          <p>залишилось мість: {selectedOption3}</p>
+          <p>залишилось місць: {selectedOption3}</p>
         </div>
         <div>
           <p className='time'>Встигни записатись на тренування: {minutes}:{seconds < 10 ? '0' : ''}{seconds}</p>
