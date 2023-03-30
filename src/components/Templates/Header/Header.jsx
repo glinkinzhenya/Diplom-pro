@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import CreateModal from '../Main/ComponentMain/CreateModal';
 import './Header.css';
-// import { trainings } from '../Main/Main';
+import { trainings } from '../Main/Main';
+
+
 
 export default function Header() {
+
   const [inputWidth, setInputWidth] = useState('120px');
 
   const handleFocus = () => {
@@ -19,17 +24,38 @@ export default function Header() {
     setInputValue(e.target.value);
   };
 
-  // const handleButtonClick = () => {
-  //   // Обработка нажатия кнопки 'ОК'
-  //   {
-  //     trainings.map(i => {
-  //       if (i.name === inputValue) {
-  //         console.log(inputValue);
-  //         console.log(i.info);
-  //       }
-  //     });
-  //   }
-  // };
+
+  const newInputValue = inputValue.split(' ').join('_').toLowerCase();
+
+  let ok = false;
+  // переменная для записи того что вводим при поиске
+  let search = null;
+
+  {
+    trainings.map((i) => {
+      if (i.name.toLowerCase() === inputValue.toLowerCase()) {
+
+        search = i;
+
+        localStorage.removeItem('trainingName');
+
+
+        ok = true
+      }
+    });
+  }
+
+
+
+  const startQuiz = () => {
+
+    const newTrainings = JSON.stringify(search);
+    localStorage.setItem('newTrainings', newTrainings);
+    
+  };
+
+  let pach;
+  ok ? pach = `/gym_team/${newInputValue}` : pach = "";
 
   return (
     <>
@@ -44,10 +70,20 @@ export default function Header() {
           type='text'
           placeholder='Пошук тренування'
         />
-        <button className='headerButton' >ОК</button>
+
+        <button onClick={startQuiz} className='headerButton'>
+          {
+            // ok &&
+            <Link
+              style={{ textDecoration: 'none' }}
+              to={`${pach}`}
+
+            >Пошук
+            </Link>
+          }
+        </button>
+
       </div>
     </>
   );
 }
-// onClick={handleButtonClick}
-// это для button

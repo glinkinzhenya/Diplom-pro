@@ -21,7 +21,7 @@ const HeaderWrapper = styled(Box)(() => ({
 
 const NavBarWrapper = styled(Box)(() => ({
   borderRadius: '20px',
-  height: '70vh',
+  height: '72vh',
   backdropFilter: 'blur(5px)',
   background: 'rgba(0, 0, 0, 0.404)',
   marginLeft: '1vh'
@@ -31,7 +31,7 @@ const BodyWrapper = styled(Box)(() => ({
   backdropFilter: 'blur(5px)',
   background: 'rgba(0, 0, 0, 0.404)',
   borderRadius: '20px',
-  height: '70vh',
+  height: '72vh',
   overflow: 'auto',
   marginLeft: '1vh',
   marginRight: '1vh'

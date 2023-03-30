@@ -12,6 +12,7 @@ input {
     margin: 5px;
     cursor: pointer;
     opacity: 0.4;
+    text-decoration: none;
 }
 
 body {

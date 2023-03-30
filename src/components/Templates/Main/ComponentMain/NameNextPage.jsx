@@ -13,17 +13,23 @@ export default function NameNextPage() {
 
   const nameButton = localStorage.getItem('trainingName');
 
-  {
-    newName.map((i) => {
-      if (i.name === nameButton) {
-        data = i;
-      }
-    });
+  if (nameButton === null) {
+
+    data = newName;
+
+  } else {
+    {
+      newName.map((i) => {
+        if (i.name === nameButton) {
+          data = i;
+        }
+      });
+    }
   }
+
 
   // Получаем ключи с Днями
   const keys = Object.keys(data.days);
-
   // Таймер
   const [timeLeft, setTimeLeft] = useState(600);
   useEffect(() => {

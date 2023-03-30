@@ -5,7 +5,7 @@ import './Footer.css';
 export default function footer() {
   return (
     <>
-      <div>
+      {/* <div>
         <a href='https://web.telegram.org/z/'>
           <img className='social'
             src='https://www.freepnglogos.com/uploads/telegram-png/telegram-software-wikipedia-2.png' alt='' />
@@ -19,7 +19,7 @@ export default function footer() {
             src='https://www.freepnglogos.com/uploads/instagram-icon/libris-mrs-librarian-instagram-logo-35.png' alt='' />
         </a>
       </div>
-      <CallBack />
+      <CallBack /> */}
     </>
   );
 }
