@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import CreateModal from '../Main/ComponentMain/CreateModal';
 import './Header.css';
 import { trainings } from '../Main/Main';
 
@@ -9,17 +8,16 @@ import { trainings } from '../Main/Main';
 export default function Header() {
 
   const [inputWidth, setInputWidth] = useState('120px');
-
   const handleFocus = () => {
     setInputWidth('180px');
   };
-
   const handleBlur = () => {
     setInputWidth('120px');
   };
 
-  const [inputValue, setInputValue] = useState('');
 
+
+  const [inputValue, setInputValue] = useState('');
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -27,35 +25,27 @@ export default function Header() {
 
   const newInputValue = inputValue.split(' ').join('_').toLowerCase();
 
-  let ok = false;
-  // переменная для записи того что вводим при поиске
-  let search = null;
+  let search = trainings;
+
+  let pach = `/gym_team/`;
 
   {
     trainings.map((i) => {
+
       if (i.name.toLowerCase() === inputValue.toLowerCase()) {
 
         search = i;
 
-        localStorage.removeItem('trainingName');
-
-
-        ok = true
+        pach = `/gym_team/${newInputValue}`;
       }
     });
   }
 
-
-
   const startQuiz = () => {
-
+    localStorage.removeItem('trainingName');
     const newTrainings = JSON.stringify(search);
     localStorage.setItem('newTrainings', newTrainings);
-    
   };
-
-  let pach;
-  ok ? pach = `/gym_team/${newInputValue}` : pach = "";
 
   return (
     <>
@@ -72,15 +62,12 @@ export default function Header() {
         />
 
         <button onClick={startQuiz} className='headerButton'>
-          {
-            // ok &&
-            <Link
-              style={{ textDecoration: 'none' }}
-              to={`${pach}`}
+          <Link
+            style={{ textDecoration: 'none', color: 'inherit' }}
+            to={pach}
 
-            >Пошук
-            </Link>
-          }
+          >Пошук
+          </Link>
         </button>
 
       </div>
