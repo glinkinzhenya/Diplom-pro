@@ -18,8 +18,8 @@ export default function footer() {
           <img className='social'
             src='https://www.freepnglogos.com/uploads/instagram-icon/libris-mrs-librarian-instagram-logo-35.png' alt='' />
         </a>
-      </div>
-      <CallBack /> */}
+      </div> */}
+      <CallBack />
     </>
   );
 }
