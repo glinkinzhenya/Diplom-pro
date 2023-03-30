@@ -5,20 +5,17 @@ import './Footer.css';
 export default function footer() {
   return (
     <>
-      {/* <div>
-        <a href='https://web.telegram.org/z/'>
-          <img className='social'
-            src='https://www.freepnglogos.com/uploads/telegram-png/telegram-software-wikipedia-2.png' alt='' />
+      <div>
+        <a href='https://www.instagram.com'>
+          <img className='social' src='./img/instagram.png' alt='' />
         </a>
         <a href='https://www.facebook.com'>
-          <img className='social'
-            src='https://www.freepnglogos.com/uploads/facebook-logo-icon/facebook-logo-clipart-flat-facebook-logo-png-icon-circle-22.png' alt='' />
+          <img className='social' src='./img/facebook.png' alt='' />
         </a>
-        <a href='https://www.instagram.com'>
-          <img className='social'
-            src='https://www.freepnglogos.com/uploads/instagram-icon/libris-mrs-librarian-instagram-logo-35.png' alt='' />
+        <a href='https://web.telegram.org/z/'>
+          <img className='social' src='./img/telegram.png' alt='' />
         </a>
-      </div> */}
+      </div>
       <CallBack />
     </>
   );
