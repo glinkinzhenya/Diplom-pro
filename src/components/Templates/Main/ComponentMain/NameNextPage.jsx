@@ -57,7 +57,6 @@ export default function NameNextPage() {
   const [options2Disabled, setOptions2Disabled] = useState(true);
 
 
-
   const [dataTime, setDataTime] = useState({});
 
 
@@ -67,22 +66,21 @@ export default function NameNextPage() {
 
   const handleOption1Change = (e) => {
     setSelectedOption1(e.target.value);
-
     time = data.days[e.target.value];
 
     setDataTime(time);
    
     setOptions2Disabled(false);
+
+    setSelectedOption2('');
+    setSelectedOption3('');
+
   };
 
   const handleOption2Change = (e) => {
     setSelectedOption2(e.target.value);
 
     setSelectedOption3(dataTime[e.target.value])
-    console.log(e.target.value);
-    console.log(dataTime);
-    console.log(selectedOption2);
-    console.log(dataTime[selectedOption2]);
   };
 
   const [open, setOpenModal] = useState(false);
