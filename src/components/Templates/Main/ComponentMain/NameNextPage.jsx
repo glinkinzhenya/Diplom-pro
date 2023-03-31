@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './NameNextPage.css';
 import { Button } from '@mui/material';
 import CreateModal from './CreateModal';
+import { classes } from '../../../../api';
 
 let resetDay;
 let resetTime;
@@ -22,7 +23,7 @@ export default function NameNextPage() {
 
   const newName = JSON.parse(name);
   const nameButton = localStorage.getItem('trainingName');
-
+  console.log(newName);
   if (nameButton === null) {
 
     data = newName;
@@ -32,15 +33,14 @@ export default function NameNextPage() {
       newName.map((i) => {
         if (i.name === nameButton) {
           data = i;
+          console.log(i);
         }
       });
     }
   }
 
-
   // Получаем ключи с Днями
   const daysKeys = Object.keys(data.days);
-
 
   // Таймер
   const [timeLeft, setTimeLeft] = useState(600);
@@ -63,7 +63,20 @@ export default function NameNextPage() {
   const [selectedOption1, setSelectedOption1] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
-  const [options2Disabled, setOptions2Disabled] = useState(true);
+  const [optionsDisabled, setOptionsDisabled] = useState(true);
+  const [optionsButtonDisabled, setOptionsButtonDisabled] = useState(true);
+
+
+  let number = selectedOption3 - 1;
+  // const array = {
+  //   'days': {
+  //     ...data.days, [selectedOption1]: { [selectedOption2]: number }
+  //   },
+  // }
+
+
+
+
 
 
   const [dataTime, setDataTime] = useState({});
@@ -81,7 +94,7 @@ export default function NameNextPage() {
 
     setDataTime(time);
 
-    setOptions2Disabled(false);
+    setOptionsDisabled(false);
 
     setSelectedOption2('');
     setSelectedOption3('');
@@ -90,11 +103,35 @@ export default function NameNextPage() {
 
   const handleOption2Change = (e) => {
     setSelectedOption2(e.target.value);
-
+    setOptionsButtonDisabled(false);
     setSelectedOption3(dataTime[e.target.value])
   };
 
   const [open, setOpenModal] = useState(false);
+
+
+  // const [data1, setData] = useState({});
+
+  const putNumberDays = async () => {
+
+    const response = await fetch(`https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/classes/${data.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'days': {
+          ...data.days, [selectedOption1]: { ...data.days[selectedOption1], [selectedOption2]: number }
+        },
+      }),
+    });
+
+    const newData = await response.json();
+    // setData(newData);
+
+    setOpenModal(true)
+  }
+
 
   return (
 
@@ -122,7 +159,7 @@ export default function NameNextPage() {
               </option>
             ))}
           </select>
-          <select value={selectedOption2} onChange={handleOption2Change} disabled={options2Disabled}>
+          <select value={selectedOption2} onChange={handleOption2Change} disabled={optionsDisabled}>
             <option value=''>Обрати час</option>
             {dataTimeKeys.map((option, index) => (
               <option key={index} value={option}>
@@ -139,7 +176,7 @@ export default function NameNextPage() {
         <div>
           <p className='time'>Встигни записатись на тренування: {minutes}:{seconds < 10 ? '0' : ''}{seconds}</p>
         </div>
-        <Button disabled={options2Disabled} onClick={() => setOpenModal(true)} sx={{ fontSize: '11px', border: '1px solid' }} size='small'>Надіслати</Button>
+        <Button disabled={optionsButtonDisabled} onClick={putNumberDays} sx={{ fontSize: '11px', border: '1px solid' }} size='small'>Надіслати</Button>
         <h2 className='card-name'>{data.name}</h2>
       </div>
       <CreateModal

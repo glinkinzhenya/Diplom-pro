@@ -98,6 +98,7 @@ select:focus {
     font-size: 25vh;
     opacity: 0.2;
     margin: 0px;
+    z-index: -1;
 }
 
 @media (max-width: 992.8px) {
