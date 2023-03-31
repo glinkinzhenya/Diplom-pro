@@ -58,7 +58,7 @@ export default function NameNextPage() {
   const [optionsDisabled, setOptionsDisabled] = useState(true);
   const [optionsButtonDisabled, setOptionsButtonDisabled] = useState(true);
 
-  let number = selectedOption3 - 1;
+  const number = selectedOption3 - 1;
 
   const [dataTime, setDataTime] = useState({});
 
@@ -83,7 +83,7 @@ export default function NameNextPage() {
   const handleOption2Change = (e) => {
     setSelectedOption2(e.target.value);
     setOptionsButtonDisabled(false);
-    setSelectedOption3(dataTime[e.target.value])
+    setSelectedOption3(dataTime[e.target.value]);
   };
 
   const [open, setOpenModal] = useState(false);

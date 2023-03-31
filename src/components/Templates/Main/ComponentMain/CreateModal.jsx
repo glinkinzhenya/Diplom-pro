@@ -47,7 +47,7 @@ export default function CreateModal({
             to={'/gym_team'}
           >Закрити
           </Link>
-            : <Button onClick={handleOnClose}>Закрити</Button>};
+            : <Button onClick={handleOnClose}>Закрити</Button>}
         </DialogActions>
       </Dialog>
     </div>
