@@ -8,10 +8,14 @@ import {
   Button,
   Typography,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function CreateModal({
-  open, handleOnClose, trainingName, imageSrc, info,
+  open, handleOnClose, trainingName, imageSrc, info, ok
 }) {
+
+console.log(ok);
+
   return (
     <div>
       <Dialog
@@ -36,7 +40,7 @@ export default function CreateModal({
           </CardContent>
         </Card>
         <DialogActions>
-          <Button onClick={handleOnClose}>Закрити</Button>
+          {ok ? <Link style={{ textDecoration: 'none', color: ' #0671dc', display: 'block', padding: '10px' }} to={`/gym_team`}>Закрити</Link> : <Button onClick={handleOnClose}>Закрити</Button>}
         </DialogActions>
       </Dialog>
     </div>

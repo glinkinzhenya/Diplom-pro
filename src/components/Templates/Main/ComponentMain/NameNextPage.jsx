@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './NameNextPage.css';
 import { Button } from '@mui/material';
 import CreateModal from './CreateModal';
-import { classes } from '../../../../api';
 
 let resetDay;
 let resetTime;
@@ -68,16 +67,6 @@ export default function NameNextPage() {
 
 
   let number = selectedOption3 - 1;
-  // const array = {
-  //   'days': {
-  //     ...data.days, [selectedOption1]: { [selectedOption2]: number }
-  //   },
-  // }
-
-
-
-
-
 
   const [dataTime, setDataTime] = useState({});
 
@@ -109,9 +98,6 @@ export default function NameNextPage() {
 
   const [open, setOpenModal] = useState(false);
 
-
-  // const [data1, setData] = useState({});
-
   const putNumberDays = async () => {
 
     const response = await fetch(`https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/classes/${data.id}`, {
@@ -127,7 +113,6 @@ export default function NameNextPage() {
     });
 
     const newData = await response.json();
-    // setData(newData);
 
     setOpenModal(true)
   }
@@ -185,6 +170,7 @@ export default function NameNextPage() {
         imageSrc={data.image}
         trainingName={`Ви обрали день: ${selectedOption1}`}
         info={`в ${selectedOption2} чекаємо Вас у нашому клубі!`}
+        ok={true}
       />
     </>
   );
