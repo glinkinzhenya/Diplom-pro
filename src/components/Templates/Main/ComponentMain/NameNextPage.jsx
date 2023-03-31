@@ -3,14 +3,14 @@ import './NameNextPage.css';
 import { Button } from '@mui/material';
 import CreateModal from './CreateModal';
 
-let test1;
-let test2;
-let test3;
+let resetDay;
+let resetTime;
+let resetNumber;
 
 export function reset() {
-  test1('');
-  test2('');
-  test3('');
+  resetDay('');
+  resetTime('');
+  resetNumber('');
 }
 
 
@@ -41,7 +41,7 @@ export default function NameNextPage() {
   // Получаем ключи с Днями
   const daysKeys = Object.keys(data.days);
 
-  
+
   // Таймер
   const [timeLeft, setTimeLeft] = useState(600);
   useEffect(() => {
@@ -68,13 +68,9 @@ export default function NameNextPage() {
 
   const [dataTime, setDataTime] = useState({});
 
-
- 
-    test1 = setSelectedOption1;
-  test2 = setSelectedOption2;
-  test3 = setSelectedOption3;
- 
-
+  resetDay = setSelectedOption1;
+  resetTime = setSelectedOption2;
+  resetNumber = setSelectedOption3;
 
   const dataTimeKeys = Object.keys(dataTime);
 
@@ -84,7 +80,7 @@ export default function NameNextPage() {
     time = data.days[e.target.value];
 
     setDataTime(time);
-   
+
     setOptions2Disabled(false);
 
     setSelectedOption2('');
