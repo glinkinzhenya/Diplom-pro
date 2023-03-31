@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import { trainings } from '../Main/Main';
+import { reset } from '../Main/ComponentMain/NameNextPage';
 
 
 
@@ -45,6 +46,7 @@ export default function Header() {
     localStorage.removeItem('trainingName');
     const newTrainings = JSON.stringify(search);
     localStorage.setItem('newTrainings', newTrainings);
+    reset();
   };
 
   return (
@@ -65,7 +67,6 @@ export default function Header() {
           <Link
             style={{ textDecoration: 'none', color: 'inherit' }}
             to={pach}
-
           >Пошук
           </Link>
         </button>

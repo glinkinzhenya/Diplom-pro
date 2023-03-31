@@ -3,6 +3,17 @@ import './NameNextPage.css';
 import { Button } from '@mui/material';
 import CreateModal from './CreateModal';
 
+let test1;
+let test2;
+let test3;
+
+export function reset() {
+  test1('');
+  test2('');
+  test3('');
+}
+
+
 export default function NameNextPage() {
   let data = null;
   let time = {};
@@ -57,6 +68,12 @@ export default function NameNextPage() {
 
   const [dataTime, setDataTime] = useState({});
 
+
+ 
+    test1 = setSelectedOption1;
+  test2 = setSelectedOption2;
+  test3 = setSelectedOption3;
+ 
 
 
   const dataTimeKeys = Object.keys(dataTime);

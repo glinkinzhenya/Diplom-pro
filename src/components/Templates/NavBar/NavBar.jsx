@@ -33,12 +33,14 @@ export default function Navbar() {
       <h2 className='popularPrograms'>Меню</h2>
       <button className='item'>
         <Link
+          style={{ display: 'block', padding: '10px' }}
           to={`/gym_team`}
         >Вібир тренувань
         </Link>
       </button>
       <button className='item'>
         <Link
+          style={{ display: 'block', padding: '10px' }}
           to={`/gym_team/trainers`}
         >Наші тренери
         </Link>
