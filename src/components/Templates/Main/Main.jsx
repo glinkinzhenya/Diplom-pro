@@ -3,8 +3,6 @@ import TrainingCard from './ComponentMain/TrainingCard';
 import { classes } from '../../../api';
 import './Main.css';
 
-export let trainings = [];
-
 export default function Trains() {
   const [trainingsData, setClasses] = useState([]);
 
@@ -19,11 +17,9 @@ export default function Trains() {
     })();
   }, []);
 
-  trainings = trainingsData;
-
   const newTrainings = JSON.stringify(trainingsData);
   localStorage.setItem('newTrainings', newTrainings);
-  localStorage.setItem('search', newTrainings);
+  localStorage.setItem('searchLocal', newTrainings);
 
   return (
       <div className='training_card_wrapper'>

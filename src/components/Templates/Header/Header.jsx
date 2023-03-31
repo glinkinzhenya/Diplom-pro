@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
-import { trainings } from '../Main/Main';
 import { reset } from '../Main/ComponentMain/NameNextPage';
 
 export default function Header() {
@@ -20,10 +19,13 @@ export default function Header() {
 
   const newInputValue = inputValue.split(' ').join('_').toLowerCase();
 
-  let search = trainings;
+  const searchLocal = localStorage.getItem('searchLocal');
+  const searchLocalMap = JSON.parse(searchLocal);
+
+  let search;
   let pach = '/gym_team/';
 
-  trainings.map((i) => {
+  searchLocalMap.map((i) => {
     if (i.name.toLowerCase() === inputValue.toLowerCase()) {
       search = i;
       pach = `/gym_team/${newInputValue}`;
