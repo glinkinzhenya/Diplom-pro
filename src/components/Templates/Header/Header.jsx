@@ -4,10 +4,7 @@ import './Header.css';
 import { trainings } from '../Main/Main';
 import { reset } from '../Main/ComponentMain/NameNextPage';
 
-
-
 export default function Header() {
-
   const [inputWidth, setInputWidth] = useState('120px');
   const handleFocus = () => {
     setInputWidth('180px');
@@ -16,31 +13,23 @@ export default function Header() {
     setInputWidth('120px');
   };
 
-
-
   const [inputValue, setInputValue] = useState('');
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
-
   const newInputValue = inputValue.split(' ').join('_').toLowerCase();
 
   let search = trainings;
+  let pach = '/gym_team/';
 
-  let pach = `/gym_team/`;
-
-  {
-    trainings.map((i) => {
-
-      if (i.name.toLowerCase() === inputValue.toLowerCase()) {
-
-        search = i;
-
-        pach = `/gym_team/${newInputValue}`;
-      }
-    });
-  }
+  trainings.map((i) => {
+    if (i.name.toLowerCase() === inputValue.toLowerCase()) {
+      search = i;
+      pach = `/gym_team/${newInputValue}`;
+    }
+    return ('');
+  });
 
   const startQuiz = () => {
     localStorage.removeItem('trainingName');

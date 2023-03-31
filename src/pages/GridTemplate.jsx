@@ -15,8 +15,7 @@ const HeaderWrapper = styled(Box)(() => ({
   padding: '0px 30px',
   backdropFilter: 'blur(5px)',
   background: 'rgba(0, 0, 0, 0.404)',
-
-  margin: '1vh'
+  margin: '1vh',
 }));
 
 const NavBarWrapper = styled(Box)(() => ({
@@ -24,7 +23,7 @@ const NavBarWrapper = styled(Box)(() => ({
   height: '72vh',
   backdropFilter: 'blur(5px)',
   background: 'rgba(0, 0, 0, 0.404)',
-  marginLeft: '1vh'
+  marginLeft: '1vh',
 }));
 
 const BodyWrapper = styled(Box)(() => ({
@@ -34,7 +33,7 @@ const BodyWrapper = styled(Box)(() => ({
   height: '72vh',
   overflow: 'auto',
   marginLeft: '1vh',
-  marginRight: '1vh'
+  marginRight: '1vh',
 }));
 
 const FooterWrapper = styled(Box)(() => ({
@@ -46,7 +45,7 @@ const FooterWrapper = styled(Box)(() => ({
   padding: '0px 20px',
   backdropFilter: 'blur(5px)',
   background: 'rgba(0, 0, 0, 0.404)',
-  margin: '1vh'
+  margin: '1vh',
 }));
 
 export default function GridTemplate({ children }) {

@@ -13,7 +13,6 @@ export function reset() {
   resetNumber('');
 }
 
-
 export default function NameNextPage() {
   let data = null;
   let time = {};
@@ -22,20 +21,16 @@ export default function NameNextPage() {
 
   const newName = JSON.parse(name);
   const nameButton = localStorage.getItem('trainingName');
-  console.log(newName);
+
   if (nameButton === null) {
-
     data = newName;
-
   } else {
-    {
-      newName.map((i) => {
-        if (i.name === nameButton) {
-          data = i;
-          console.log(i);
-        }
-      });
-    }
+    newName.map((i) => {
+      if (i.name === nameButton) {
+        data = i;
+      }
+      return ('');
+    });
   }
 
   // Получаем ключи с Днями
@@ -56,15 +51,12 @@ export default function NameNextPage() {
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
 
-
-
   // Выбор дня и времени
   const [selectedOption1, setSelectedOption1] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
   const [optionsDisabled, setOptionsDisabled] = useState(true);
   const [optionsButtonDisabled, setOptionsButtonDisabled] = useState(true);
-
 
   let number = selectedOption3 - 1;
 
@@ -76,7 +68,6 @@ export default function NameNextPage() {
 
   const dataTimeKeys = Object.keys(dataTime);
 
-
   const handleOption1Change = (e) => {
     setSelectedOption1(e.target.value);
     time = data.days[e.target.value];
@@ -87,7 +78,6 @@ export default function NameNextPage() {
 
     setSelectedOption2('');
     setSelectedOption3('');
-
   };
 
   const handleOption2Change = (e) => {
@@ -99,29 +89,23 @@ export default function NameNextPage() {
   const [open, setOpenModal] = useState(false);
 
   const putNumberDays = async () => {
-
-    const response = await fetch(`https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/classes/${data.id}`, {
+    await fetch(`https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/classes/${data.id}`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        'days': {
-          ...data.days, [selectedOption1]: { ...data.days[selectedOption1], [selectedOption2]: number }
+        days: {
+          ...data.days, [selectedOption1]: { ...data.days[selectedOption1], [selectedOption2]: number },
         },
       }),
     });
 
-    const newData = await response.json();
-
-    setOpenModal(true)
-  }
-
+    setOpenModal(true);
+  };
 
   return (
-
     <>
-
       <div className='block'>
         {
           data.gallery.map((i, index) => (
