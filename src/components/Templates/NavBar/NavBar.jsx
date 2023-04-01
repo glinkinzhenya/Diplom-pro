@@ -5,7 +5,6 @@ import './NavBar.css';
 
 const NavBarWrapper = styled(Box)(() => ({
   padding: '20px',
-  overflow: 'scroll',
   height: '58vh',
   display: 'flex',
   flexDirection: 'column',
