@@ -9,18 +9,13 @@ export default function MainRoute() {
   return (
     <Main>
       <Routes>
-        {/* <Route index element={<Main />} path='/test' /> */}
         <Route index element={<Trainings />} />
 
+        {/* /:name плавающий элемент */}
+        <Route path='/gym_team/trainings/:name' element={<SportPage />} />
+
         {/* /edit фиксированный элемент */}
-        <Route path='/edit' element={<>Test text edit</>} />
-
-        {/* /:name плавающий элемент */}
-        <Route path='/trainings/:name' element={<SportPage />} />
-
         <Route path='/trainings' element={<Trainings />} />
-
-        {/* /:name плавающий элемент */}
         <Route path='/trainers' element={<Trainers />} />
       </Routes>
     </Main>
