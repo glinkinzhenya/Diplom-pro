@@ -23,7 +23,7 @@ export default function Header() {
   const searchLocalMap = JSON.parse(searchLocal);
 
   let search;
-  let pach = '/gym_team/';
+  let pach = '/';
 
   searchLocalMap.map((i) => {
     if (i.name.toLowerCase() === inputValue.toLowerCase()) {
