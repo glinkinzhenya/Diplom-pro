@@ -44,7 +44,7 @@ export default function CreateModal({
               display: 'block',
               padding: '10px',
             }}
-            to={'/gym_team'}
+            to={'/'}
           >Закрити
           </Link>
             : <Button onClick={handleOnClose}>Закрити</Button>}

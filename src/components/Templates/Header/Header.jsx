@@ -28,7 +28,7 @@ export default function Header() {
   searchLocalMap.map((i) => {
     if (i.name.toLowerCase() === inputValue.toLowerCase()) {
       search = i;
-      pach = `/gym_team/trainings/${newInputValue}`;
+      pach = `/trainings/${newInputValue}`;
     }
     return ('');
   });

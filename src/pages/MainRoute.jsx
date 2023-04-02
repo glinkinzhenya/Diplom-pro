@@ -9,7 +9,7 @@ export default function MainRoute() {
   return (
     <Main>
       <Routes>
-        <Route index element={<Trainings />} path='/'/>
+        <Route path='/' element={<Trainings />} />
         {/* /edit фиксированный элемент */}
         <Route path='/trainings' element={<Trainings />} />
         <Route path='/trainers' element={<Trainers />} />
