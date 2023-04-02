@@ -8,7 +8,7 @@ export default function App() {
     <div className='App'>
       <BrowserRouter>
         <Routes>
-          <Route index element={<MainRoute />} />
+          <Route index path='/' element={<MainRoute />} />
           <Route path='*' element={<NotFound />} />
           <Route path='/gym_team/*' element={<MainRoute />} />
         </Routes>

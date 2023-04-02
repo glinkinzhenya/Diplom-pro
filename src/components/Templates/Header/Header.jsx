@@ -38,6 +38,7 @@ export default function Header() {
     const newTrainings = JSON.stringify(search);
     localStorage.setItem('newTrainings', newTrainings);
     reset();
+    setInputValue('');
   };
 
   return (
