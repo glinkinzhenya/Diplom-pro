@@ -3,7 +3,7 @@ import TrainingCard from '../../components/Templates/Main/ComponentMain/Training
 import { classes } from '../../api';
 import './Trainings.css';
 
-export default function Trains() {
+export default function Trainings() {
   const [trainingsData, setClasses] = useState([]);
 
   useEffect(() => {

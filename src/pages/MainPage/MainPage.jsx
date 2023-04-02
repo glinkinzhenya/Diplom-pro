@@ -47,7 +47,7 @@ const FooterWrapper = styled(Box)(() => ({
   margin: '1vh',
 }));
 
-export default function GridTemplate({ children }) {
+export default function Main({ children }) {
   return (
     <div className='GridTemplate'>
       <Grid container>

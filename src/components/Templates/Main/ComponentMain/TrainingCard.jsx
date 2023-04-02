@@ -47,7 +47,7 @@ export default function TreiningCard({
             !on && <Button onClick={startQuiz} sx={{ fontSize: '11px' }} size='small'>
               <Link
                 style={{ textDecoration: 'none', color: 'inherit' }}
-                to={`/gym_team/${newTrainingName}`}
+                to={`/gym_team/trainings/${newTrainingName}`}
               >
                 Открыть
               </Link>

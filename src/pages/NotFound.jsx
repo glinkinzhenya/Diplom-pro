@@ -1,15 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function NotFound() {
   return (
     <>
       <h3>Ошибка 404</h3>
 
-      <h1>Страница не найдена</h1>
-
-      <h3>Неправильно набран адрес или такой страницы на сайте больше не существует.</h3>
-
-      <button>Перейти на главную страницу</button>
+      <button>
+        <Link
+          to={'/gym_team'}
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >Перейти на головну...
+        </Link>
+      </button>
     </>
   );
 }
