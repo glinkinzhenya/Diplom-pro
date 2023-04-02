@@ -19,17 +19,17 @@ export default function Trainers() {
 
   return (
     <>
-      <div className='trainersWrapper'>
-        {trainersData.map((trainers) => (
-          <TrainingCard
-            trainingName={trainers.name}
-            imageSrc={trainers.img}
-            info={trainers.fullInfo}
-            key={trainers.id}
-            on={'on'}
-          />
-        ))}
-      </div>
+        <div className='trainersWrapper'>
+          {trainersData.map((trainers) => (
+            <TrainingCard
+              trainingName={trainers.name}
+              imageSrc={trainers.img}
+              info={trainers.fullInfo}
+              key={trainers.id}
+              on={'on'}
+            />
+          ))}
+        </div>
     </>
   );
 }
