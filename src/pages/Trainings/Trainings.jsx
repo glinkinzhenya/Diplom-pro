@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import TrainingCard from './ComponentMain/TrainingCard';
-import { classes } from '../../../api';
-import './Main.css';
+import TrainingCard from '../../components/Templates/Main/ComponentMain/TrainingCard';
+import { classes } from '../../api';
+import './Trainings.css';
 
 export default function Trains() {
   const [trainingsData, setClasses] = useState([]);
@@ -22,7 +22,7 @@ export default function Trains() {
   localStorage.setItem('searchLocal', newTrainings);
 
   return (
-      <div className='training_card_wrapper'>
+    <div className='training_card_wrapper'>
       {trainingsData.map((training) => (
         <TrainingCard
           trainingName={training.name}

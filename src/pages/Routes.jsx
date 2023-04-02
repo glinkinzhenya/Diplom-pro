@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import GridTemplate from './GridTemplate';
-import Main from '../components/Templates/Main/Main';
-import NameNextPage from '../components/Templates/Main/ComponentMain/NameNextPage';
-import Trainers from '../components/Templates/Main/Trainers/Trainers';
+import GridTemplate from './GridTemplate/GridTemplate';
+import Main from './Trainings/Trainings';
+import NameNextPage from './SportPage/SportPage';
+import Trainers from './Trainers/Trainers';
 
 export default function NextPage() {
   return (

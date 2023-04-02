@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
-import { reset } from '../Main/ComponentMain/NameNextPage';
+import { reset } from '../../../pages/SportPage/SportPage';
 
 export default function Header() {
   const [inputWidth, setInputWidth] = useState('120px');
