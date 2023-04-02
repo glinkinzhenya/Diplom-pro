@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import GridTemplate from './GridTemplate/GridTemplate';
+import GridTemplate from './MainPage/MainPage';
 import Main from './Trainings/Trainings';
 import NameNextPage from './SportPage/SportPage';
 import Trainers from './Trainers/Trainers';
