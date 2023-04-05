@@ -4,6 +4,7 @@ import Main from './MainPage/MainPage';
 import Trainings from './Trainings/Trainings';
 import SportPage from './SportPage/SportPage';
 import Trainers from './Trainers/Trainers';
+import NotFound from './NotFound/NotFound';
 
 export default function MainRoute() {
   return (
@@ -16,6 +17,7 @@ export default function MainRoute() {
 
         {/* /:name плавающий элемент */}
         <Route path='/trainings/:name' element={<SportPage />} />
+        <Route path='/*' element={<NotFound />} />
       </Routes>
     </Main>
   );
