@@ -8,9 +8,9 @@ let resetTime;
 let resetNumber;
 
 export function reset() {
-  resetDay('');
-  resetTime('');
-  resetNumber('');
+  if (resetDay) resetDay('');
+  if (resetTime) resetTime('');
+  if (resetNumber) resetNumber('');
 }
 
 export default function NameNextPage() {
