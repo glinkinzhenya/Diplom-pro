@@ -5,12 +5,13 @@ import Trainings from './Trainings/Trainings';
 import SportPage from './SportPage/SportPage';
 import Trainers from './Trainers/Trainers';
 import NotFound from './NotFound/NotFound';
+import Start from './Start/Start';
 
 export default function MainRoute() {
   return (
     <Main>
       <Routes>
-        <Route path='/' element={<Trainings />} />
+        <Route path='/' element={<Start />} />
         {/* /edit фиксированный элемент */}
         <Route path='/trainings' element={<Trainings />} />
         <Route path='/trainers' element={<Trainers />} />

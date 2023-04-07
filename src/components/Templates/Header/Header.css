@@ -22,7 +22,8 @@ body {
 .header-title {
     color: white;
     font-weight: 500;
-    font-size: 45px;
+    font-size: 48px;
+    opacity: 0.5;
 }
 
 @media (max-width: 768.8px) {

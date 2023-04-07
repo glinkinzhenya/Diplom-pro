@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { trainers } from '../../api';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import TrainingCard from '../../components/Templates/Main/ComponentMain/TrainingCard';
+import { trainersThunks } from '../../store/modules/trainers';
 import './Trainers.css';
 
 export default function Trainers() {
-  const [trainersData, setClasses] = useState([]);
+  const { trainers } = useSelector((state) => state.trainersReducer);
+  console.log(trainers);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await trainers.fetch();
-        setClasses(data);
+        await dispatch(trainersThunks.fetchTrainers());
       } catch (err) {
         console.log(err);
       }
@@ -20,7 +22,7 @@ export default function Trainers() {
   return (
     <>
       <div className='trainersWrapper'>
-        {trainersData.map((trainers) => (
+        {trainers.map((trainers) => (
           <TrainingCard
             trainingName={trainers.name}
             imageSrc={trainers.img}
