@@ -14,15 +14,17 @@ export const trainingsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(actions.filterTrainings, (state, { payload }) => {
-      if (payload.search === '') {
-        state.filterTrainings = state.trainings;
-      } else {
-        state.filterTrainings = state.trainings.filter((training) => training.name.toLowerCase().indexOf(payload.search.toLowerCase()) >= 0);
-      }
-    });
     builder.addCase(thunks.fetchTrainings.fulfilled, (state, { payload }) => {
+      console.log(payload);
       state.trainings = payload;
+      state.filterTrainings = payload;
+    });
+    builder.addCase(actions.filterTrainings, (state, { payload }) => {
+      if (payload.search.length < 2) {
+        state.trainings = state.filterTrainings;
+      } else if (payload.search.length >= 2) {
+        state.trainings = state.trainings.filter((training) => training.name.toLowerCase().indexOf(payload.search.toLowerCase()) >= 0);
+      }
     });
   },
 });

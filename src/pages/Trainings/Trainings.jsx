@@ -5,9 +5,9 @@ import { trainingsThunks } from '../../store/modules/trainings';
 import './Trainings.css';
 
 export default function Trainings() {
-  const { filterTrainings } = useSelector((state) => state.trainingsReducer);
-  const dispatch = useDispatch();
+  const { trainings } = useSelector((state) => state.trainingsReducer);
 
+  const dispatch = useDispatch();
   useEffect(() => {
     (async () => {
       try {
@@ -20,7 +20,7 @@ export default function Trainings() {
 
   return (
     <div className='training_card_wrapper'>
-      {filterTrainings.map((training) => (
+      {trainings.map((training) => (
         <TrainingCard
           trainingName={training.name}
           imageSrc={training.image}
