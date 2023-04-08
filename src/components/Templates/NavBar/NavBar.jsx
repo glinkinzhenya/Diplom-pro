@@ -25,14 +25,10 @@ export default function Navbar() {
     transition: 'opacity 1s ease-in-out',
   };
 
-  const displayBlock = () => {
-    localStorage.setItem('displayBlock', 'true');
-  };
-
   return (
     <NavBarWrapper>
       <h2 className='popularPrograms'>Меню</h2>
-      <button onClick={displayBlock} style={opacity} className='item'>
+      <button style={opacity} className='item'>
         <Link
           style={{ display: 'block', padding: '10px' }}
           to={'/trainings'}

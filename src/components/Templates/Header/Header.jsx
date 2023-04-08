@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './Header.css';
 import { trainingsActions } from '../../../store/modules/trainings';
@@ -23,17 +24,21 @@ export default function Header() {
     <>
       <h1 className='header-title'>Gym Team</h1>
       <div>
-        {<input
-            onClick={handleFocus}
-            onBlur={handleBlur}
-            value={inputValue}
-            onChange={handleInputChange}
-            style={{ width: inputWidth, transition: 'width 0.2s ease-in-out' }}
-            type='text'
-            placeholder='Пошук тренування'
-          />
-        }
-      </div>
+        <Link
+          style={{ display: 'block', padding: '10px'}}
+          to={'/trainings'}
+        >
+          <input
+          onClick={handleFocus}
+          onBlur={handleBlur}
+          value={inputValue}
+          onChange={handleInputChange}
+          style={{ width: inputWidth, transition: 'width 0.2s ease-in-out' }}
+          type='text'
+          placeholder='Пошук тренування'
+        />
+        </Link>
+      </div >
     </>
   );
 }
