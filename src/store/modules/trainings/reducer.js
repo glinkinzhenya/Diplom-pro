@@ -15,7 +15,6 @@ export const trainingsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(thunks.fetchTrainings.fulfilled, (state, { payload }) => {
-      console.log(payload);
       state.trainings = payload;
       state.filterTrainings = payload;
     });

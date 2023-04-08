@@ -6,7 +6,6 @@ import './Trainers.css';
 
 export default function Trainers() {
   const { trainers } = useSelector((state) => state.trainersReducer);
-  console.log(trainers);
   const dispatch = useDispatch();
 
   useEffect(() => {

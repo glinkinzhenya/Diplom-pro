@@ -23,15 +23,16 @@ export default function Header() {
     <>
       <h1 className='header-title'>Gym Team</h1>
       <div>
-        <input
-          onClick={handleFocus}
-          onBlur={handleBlur}
-          value={inputValue}
-          onChange={handleInputChange}
-          style={{ width: inputWidth, transition: 'width 0.2s ease-in-out' }}
-          type='text'
-          placeholder='Пошук тренування'
-        />
+        {<input
+            onClick={handleFocus}
+            onBlur={handleBlur}
+            value={inputValue}
+            onChange={handleInputChange}
+            style={{ width: inputWidth, transition: 'width 0.2s ease-in-out' }}
+            type='text'
+            placeholder='Пошук тренування'
+          />
+        }
       </div>
     </>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import CreateModal from '../../components/Templates/Main/ComponentMain/CreateModal';
 import './SportPage.css';
@@ -17,9 +18,9 @@ export default function NameNextPage() {
   let data = null;
   let time = {};
 
-  const name = localStorage.getItem('newTrainings');
+  const { trainings } = useSelector((state) => state.trainingsReducer);
 
-  const newName = JSON.parse(name);
+  const newName = trainings;
   const nameButton = localStorage.getItem('trainingName');
 
   if (nameButton === null) {
