@@ -12,9 +12,7 @@ export default function NameNextPage() {
   const nameButton = localStorage.getItem('trainingName');
 
   trainings.map((i) => {
-    if (i.name === nameButton) {
-      localStorage.setItem('card', `${JSON.stringify(i)}`);
-    }
+    if (i.name === nameButton) localStorage.setItem('card', `${JSON.stringify(i)}`);
     return ('');
   });
 

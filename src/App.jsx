@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import store from './store';
 import MainRoute from './pages/MainRoute';
 
-
 export default function App() {
   return (
     <Provider store={store}>
