@@ -22,21 +22,26 @@ export default function Header() {
 
   return (
     <>
-      <h1 className='header-title'>Gym Team</h1>
+      <Link
+        to={'/'}
+        style={{ textDecoration: 'none' }}
+      >
+        <h1 className='header-title'>Gym Team </h1>
+      </Link>
       <div>
         <Link
-          style={{ display: 'block', padding: '10px'}}
+          style={{ display: 'block', padding: '10px' }}
           to={'/trainings'}
         >
           <input
-          onClick={handleFocus}
-          onBlur={handleBlur}
-          value={inputValue}
-          onChange={handleInputChange}
-          style={{ width: inputWidth, transition: 'width 0.2s ease-in-out' }}
-          type='text'
-          placeholder='Пошук тренування'
-        />
+            onClick={handleFocus}
+            onBlur={handleBlur}
+            value={inputValue}
+            onChange={handleInputChange}
+            style={{ width: inputWidth, transition: 'width 0.2s ease-in-out' }}
+            type='text'
+            placeholder='Пошук тренування'
+          />
         </Link>
       </div >
     </>
