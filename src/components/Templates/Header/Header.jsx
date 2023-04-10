@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './Header.css';
+import { useMediaQuery } from '@mui/material';
 import { trainingsActions } from '../../../store/modules/trainings';
+import BurgerBig from './ComponentHeader/Burger';
 
 export default function Header() {
   const [inputWidth, setInputWidth] = useState('120px');
@@ -19,6 +21,8 @@ export default function Header() {
     setInputValue(e.target.value);
     dispatch(trainingsActions.filterTrainings({ search: inputValue }));
   };
+
+  const burgerTrue = useMediaQuery('(min-width:625px)');
 
   return (
     <>
@@ -44,6 +48,7 @@ export default function Header() {
           />
         </Link>
       </div >
+      {!burgerTrue && <BurgerBig />}
     </>
   );
 }
