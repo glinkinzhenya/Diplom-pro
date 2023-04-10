@@ -7,7 +7,6 @@ import './Admin.css';
 
 export default function Admin() {
   const { control, handleSubmit, getValues } = useForm();
-  console.log(control);
 
   const onSubmit = () => {
     if (getValues().login === 'admin' && getValues().password === 'qwerty') {
