@@ -1,0 +1,23 @@
+#myFileInput::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+#myFileInput::before {
+    content: '';
+    display: inline-block;
+}
+
+.add-form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0 0 0 / 69%);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 5%;
+    gap: 10px;
+}

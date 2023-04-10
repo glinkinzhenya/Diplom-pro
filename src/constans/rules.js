@@ -1,6 +1,9 @@
 export const rulesText = {
   required: (field) => `Треба ввести ${field}.`,
 };
+export const rulesImage = {
+  required: (field) => `Треба додати ${field}.`,
+};
 
 export const adminRules = {
   login: {
@@ -8,5 +11,8 @@ export const adminRules = {
   },
   password: {
     required: { value: true, message: rulesText.required('пароль') },
+  },
+  image: {
+    required: { value: true, message: rulesImage.required('логотип') },
   },
 };

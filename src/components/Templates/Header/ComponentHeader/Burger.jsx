@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import {
   Button,
-  Drawer, Box, List, ListItem, ListItemButton, ListItemText,
+  Drawer,
+  Box,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 
 export default function Burger() {
   const [open, setOpen] = useState(false);
-
   const pages = ['Головна', 'Вибір тренувань', 'Наші тренери'];
   const links = ['/', '/trainings', '/trainers'];
-  // eslint-disable-next-line react/jsx-key
 
   return (
     <nav>
