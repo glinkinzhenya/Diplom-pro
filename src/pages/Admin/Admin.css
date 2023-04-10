@@ -1,0 +1,19 @@
+.admin {
+display: flex;
+flex-direction: column;
+gap: 20px;
+padding: 30px;
+background-color: rgba(0, 0, 0, 0.591);
+width: 30%;
+margin-left: auto;
+margin-right: auto;
+border-radius: 20px;
+margin-top: 10%;
+}
+.admin>button {
+width: 40%;
+border-radius: 5px;
+padding: 5px;
+background-color: white;
+border: 1px soid black;
+}
