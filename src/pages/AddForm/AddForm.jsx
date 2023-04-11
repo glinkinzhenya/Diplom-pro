@@ -1,109 +1,74 @@
-import React, { useState } from 'react';
-import Resizer from 'react-image-file-resizer';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '@mui/material';
 import { InputText } from '../../components/Forms/InputText';
-import { adminRules } from '../../constans/rules';
+import { addFormRules } from '../../constans/rules';
 import './AddForm.css';
 
 export default function AddForm() {
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit, getValues } = useForm();
 
-  const [imageData, setImageData] = useState(null);
-  console.log(imageData);
-  function handleImageChange(e) {
-    console.log('huy');
-    const file = e.target.files[0];
-
-    Resizer.imageFileResizer(
-      file,
-      800, // максимальная ширина
-      600, // максимальная высота
-      'JPEG', // формат изображения
-      70, // качество изображения в процентах
-      0, // ориентация изображения
-      (uri) => {
-        setImageData(uri);
-      },
-      // 'base64' // тип вывода изображения
-    );
-  }
-
-  function primer() {
-    console.log('primer');
+  function pushServer() {
+    console.log(getValues());
   }
 
   return (
     <div className='add-form-wrapper'>
       <div className='add-form'>
-        {/* <InputText
+        <InputText
           control={control}
           name='name'
           label='Назва тренування'
-          type='text'
-          rules={adminRules.login}
-        /> */}
+          rules={addFormRules.login}
+        />
         <InputText
           style={{ backgroundColor: 'black' }}
           control={control}
           name='image'
           label='Логотип'
-          type='file'
-          rules={adminRules.image}
+          rules={addFormRules.image}
           id="myFileInput"
-          // onChange={handleImageChange}
-        />
-        {/* <InputText
-          control={control}
-          name='fullInfo'
-          label='опис тренування'
-          type='text'
-          rules={adminRules.login}
         />
         <InputText
+          style={{ backgroundColor: 'black' }}
           control={control}
-          name='gallery'
+          name='description'
+          label='Опис тренування'
+          rules={addFormRules.description}
+        />
+        <InputText
+          style={{ backgroundColor: 'black' }}
+          control={control}
+          name='image_1'
           label='Зображення 1'
-          type='file'
-          rules={adminRules.password}
-        /> */}
-        {/* <InputText
+          rules={addFormRules.image}
+        />
+        <InputText
+          style={{ backgroundColor: 'black' }}
           control={control}
-          name='gallery'
+          name='image_2'
           label='Зображення 2'
-          type='file'
-          rules={adminRules.password}
+          rules={addFormRules.image}
         />
         <InputText
+          style={{ backgroundColor: 'black' }}
           control={control}
-          name='gallery'
+          name='image_3'
           label='Зображення 3'
-          type='file'
-          rules={adminRules.password}
+          rules={addFormRules.image}
         />
         <InputText
+          style={{ backgroundColor: 'black' }}
           control={control}
-          name='gallery'
+          name='image_4'
           label='Зображення 4'
-          type='file'
-          rules={adminRules.password}
-        /> */}
-        {/* <InputText
-          control={control}
-          name='days'
-          label='Вільні дні'
-          type='text'
-          rules={adminRules.login}
-        /> */}
+          rules={addFormRules.image}
+        />
         <Button
           size='large'
-          onClick={handleSubmit(primer)}
+          onClick={handleSubmit(pushServer)}
         >Додати
         </Button>
-        <div>
-          <input type="file" onChange={handleImageChange} />
-          {imageData && <img src={imageData} alt="uploaded" />}
-        </div>
       </div>
     </div>
   );

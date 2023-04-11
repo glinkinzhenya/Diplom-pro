@@ -7,13 +7,11 @@ export function InputText({
   name,
   defaultValue = '',
   label,
-  type,
   rules,
   ...props
 }) {
   return (
     <Controller
-      type={type}
       control={control}
       name={name}
       defaultValue={defaultValue}
@@ -30,13 +28,13 @@ export function InputText({
               color: 'rgba(255, 255, 255, 0.892)', // цвет текста метки
             },
           }}
-          type={type}
+          type='text'
           label={label}
           value={value}
           inputRef={ref}
           onChange={onChange}
           margin='normal'
-          error={!!error}
+          error={error}
           helperText={error ? error.message : ''}
           {...props}
         />
