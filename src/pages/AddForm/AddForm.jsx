@@ -1,37 +1,39 @@
-// import React, { useState } from 'react';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Button, Grid, TextField } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import { InputText } from '../../components/Forms/InputText';
 import { addFormRules } from '../../constans/rules';
 import './AddForm.css';
 
 export default function AddForm() {
-  const [day, setDay] = useState('');
-  const [time, setTime] = useState('');
-  const [value, setValue] = useState('');
-  const [result, setResult] = useState({});
-
-  let days = '';
+  const dayRef = useRef(null);
+  const timeRef = useRef(null);
+  const valueRef = useRef(null);
+  const [days, setResult] = useState({});
 
   const handleSubmitTwo = (event) => {
     event.preventDefault();
 
-    const obj = { ...result };
-
+    const obj = { ...days };
+    const day = dayRef.current.value;
+    const time = timeRef.current.value;
+    // eslint-disable-next-line prefer-destructuring
+    const value = valueRef.current.value;
+    if (Object.keys(obj[day] || {}).length === 0 && value === '') {
+      return;
+    }
     if (!obj[day]) {
       obj[day] = {};
     }
 
     obj[day][time] = value;
     setResult(obj);
-    setDay('');
-    setTime('');
-    setValue('');
+    dayRef.current.value = '';
+    timeRef.current.value = '';
+    valueRef.current.value = '';
   };
 
-  console.log(result);
-  days = result;
+  console.log(days);
 
   const { control, handleSubmit, getValues } = useForm();
 
@@ -55,6 +57,7 @@ export default function AddForm() {
     <>
       <div className='add-form-wrapper'>
         <form className='add-form' onSubmit={handleSubmitTwo}>
+          <h3>Додаєм ссилку на зображення, заповнюємо день, час та кількість вільних місць, якщо в цей день ще є додаткові часи то повторюємо той самий день та пишемо інщі часи.</h3>
           <InputText
             control={control}
             name='name'
@@ -74,28 +77,24 @@ export default function AddForm() {
             rules={addFormRules.description}
           />
           <InputText
-            style={{ backgroundColor: 'black' }}
             control={control}
             name='image_1'
             label='Зображення 1'
             rules={addFormRules.image}
           />
           <InputText
-            style={{ backgroundColor: 'black' }}
             control={control}
             name='image_2'
             label='Зображення 2'
             rules={addFormRules.image}
           />
           <InputText
-            style={{ backgroundColor: 'black' }}
             control={control}
             name='image_3'
             label='Зображення 3'
             rules={addFormRules.image}
           />
           <InputText
-            style={{ backgroundColor: 'black' }}
             control={control}
             name='image_4'
             label='Зображення 4'
@@ -104,45 +103,54 @@ export default function AddForm() {
 
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <TextField
-                label='Day'
+              <InputText
+                control={control}
+                name='day'
+                label='День'
                 variant='outlined'
                 fullWidth
-                value={day}
-                onChange={(e) => setDay(e.target.value)}
+                inputRef={dayRef}
+                rules={addFormRules.day}
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                label='Time'
+              <InputText
+                control={control}
+                label='Час'
+                name='time'
                 variant='outlined'
                 fullWidth
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
+                inputRef={timeRef}
+                rules={addFormRules.time}
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                label='Value'
+              <InputText
+                control={control}
+                rules={addFormRules.place}
+                name='place'
+                label='Кількість місць'
                 variant='outlined'
                 fullWidth
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
+                inputRef={valueRef}
+                type='number'
               />
             </Grid>
             <Grid item xs={12}>
-              <Button variant='contained' type='submit' fullWidth>
-                Submit
+              <Button variant='contained' type='submit'>
+                Додати день
               </Button>
             </Grid>
             <Grid item xs={12}>
-              <pre>{JSON.stringify(result, null, 2)}</pre>
+              <pre>{JSON.stringify(days, null, 2)}</pre>
             </Grid>
           </Grid>
           <Button
+            disabled={Object.keys(days).length === 0}
+            variant='contained'
             size='large'
             onClick={handleSubmit(putForm)}
-          >Додати
+          >Відправити на сервер
           </Button>
         </form>
       </div>

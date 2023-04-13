@@ -27,4 +27,13 @@ export const addFormRules = {
   description: {
     required: { value: true, message: rulesText.required('опис') },
   },
+  day: {
+    required: { value: true, message: rulesText.required('день') },
+  },
+  time: {
+    required: { value: true, message: rulesText.required('час') },
+  },
+  place: {
+    required: { value: true, message: rulesText.required('кількість місць') },
+  },
 };
