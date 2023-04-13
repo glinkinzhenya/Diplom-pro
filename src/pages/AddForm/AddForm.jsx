@@ -33,8 +33,6 @@ export default function AddForm() {
     valueRef.current.value = '';
   };
 
-  console.log(days);
-
   const { control, handleSubmit, getValues } = useForm();
 
   const putForm = async () => {
@@ -51,6 +49,7 @@ export default function AddForm() {
         days,
       }),
     });
+    window.location.href = '/trainings';
   };
 
   return (
