@@ -12,7 +12,7 @@ export default function AddForm() {
   const [value, setValue] = useState('');
   const [result, setResult] = useState({});
 
-  let data2 = '';
+  let days = '';
 
   const handleSubmitTwo = (event) => {
     event.preventDefault();
@@ -31,7 +31,7 @@ export default function AddForm() {
   };
 
   console.log(result);
-  data2 = result;
+  days = result;
 
   const { control, handleSubmit, getValues } = useForm();
 
@@ -46,7 +46,7 @@ export default function AddForm() {
         image: getValues().image,
         fullInfo: getValues().fullInfo,
         gallery: [getValues().image_1, getValues().image_2, getValues().image_3, getValues().image_4],
-        data2,
+        days,
       }),
     });
   };
