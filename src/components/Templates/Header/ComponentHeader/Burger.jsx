@@ -20,7 +20,7 @@ export default function Burger() {
     <nav>
       <Button
         onClick={() => setOpen(true)}
-        sx={{ color: 'var(--secondary-alt)' }}
+        sx={{ color: 'white' }}
       >
         <MenuIcon />
       </Button>
@@ -41,10 +41,10 @@ export default function Burger() {
         >
           <List>
             {pages.map((page, index) => (
-              <Link key={page} to={links[index]}>
+              <Link key={page} to={links[index]} >
                 <ListItem disablePadding>
                   <ListItemButton>
-                    <ListItemText primary={page} />
+                    <ListItemText primary={page}/>
                   </ListItemButton>
                 </ListItem>
               </Link>
