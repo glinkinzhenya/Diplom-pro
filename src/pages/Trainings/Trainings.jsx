@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import TrainingCard from '../../components/Templates/Main/ComponentMain/TrainingCard';
-import { classes } from '../../api';
+import { trainingsThunks } from '../../store/modules/trainings';
 import './Trainings.css';
 
 export default function Trainings() {
-  const [trainingsData, setClasses] = useState([]);
+  const { trainings } = useSelector((state) => state.trainingsReducer);
 
+  const dispatch = useDispatch();
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await classes.fetch();
-        setClasses(data);
+        await dispatch(trainingsThunks.fetchTrainings());
       } catch (err) {
         console.log(err);
       }
     })();
   }, []);
 
-  const newTrainings = JSON.stringify(trainingsData);
-  localStorage.setItem('newTrainings', newTrainings);
-  localStorage.setItem('searchLocal', newTrainings);
-
   return (
     <div className='training_card_wrapper'>
-      {trainingsData.map((training) => (
+      {trainings.map((training) => (
         <TrainingCard
           trainingName={training.name}
           imageSrc={training.image}

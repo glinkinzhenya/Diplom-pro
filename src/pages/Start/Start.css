@@ -1,0 +1,23 @@
+.logo {
+    width: 45%;
+    opacity: 0.1;
+    display: block;
+    margin: 0 auto;
+    transition: width 2s ease-in-out, opacity 1s ease-in-out;
+
+}
+
+.loaded {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    opacity: 0.6;
+}
+
+.wtiteText {
+    color: white;
+    font-size: 3vh;
+    opacity: 0.6;
+    margin-left: 15%;
+    margin-right: 15%;
+}

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import './Header.css';
-import { reset } from '../../../pages/SportPage/SportPage';
+import { useMediaQuery } from '@mui/material';
+import { trainingsActions } from '../../../store/modules/trainings';
+import BurgerBig from './ComponentHeader/Burger';
 
 export default function Header() {
   const [inputWidth, setInputWidth] = useState('120px');
@@ -12,58 +15,40 @@ export default function Header() {
     setInputWidth('120px');
   };
 
+  const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState('');
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
+    dispatch(trainingsActions.filterTrainings({ search: inputValue }));
   };
 
-  const newInputValue = inputValue.split(' ').join('_').toLowerCase();
-
-  const searchLocal = localStorage.getItem('searchLocal');
-  const searchLocalMap = JSON.parse(searchLocal);
-
-  let search;
-  let pach = '/';
-
-  searchLocalMap.map((i) => {
-    if (i.name.toLowerCase() === inputValue.toLowerCase()) {
-      search = i;
-      pach = `/trainings/${newInputValue}`;
-    }
-    return ('');
-  });
-
-  const startQuiz = () => {
-    localStorage.removeItem('trainingName');
-    const newTrainings = JSON.stringify(search);
-    localStorage.setItem('newTrainings', newTrainings);
-    reset();
-    setInputValue('');
-  };
+  const burgerTrue = useMediaQuery('(min-width:625px)');
 
   return (
     <>
-      <h1 className='header-title'>Gym Team</h1>
+      <Link
+        to={'/'}
+        style={{ textDecoration: 'none' }}
+      >
+        <h1 className='header-title'>Gym Team </h1>
+      </Link>
       <div>
-        <input
-          onClick={handleFocus}
-          onBlur={handleBlur}
-          value={inputValue}
-          onChange={handleInputChange}
-          style={{ width: inputWidth, transition: 'width 0.2s ease-in-out' }}
-          type='text'
-          placeholder='Пошук тренування'
-        />
-
-        <button onClick={startQuiz} className='headerButton'>
-          <Link
-            style={{ textDecoration: 'none', color: 'inherit' }}
-            to={pach}
-          >Пошук
-          </Link>
-        </button>
-
-      </div>
+        <Link
+          style={{ display: 'block', padding: '10px' }}
+          to={'/trainings'}
+        >
+          <input
+            onClick={handleFocus}
+            onBlur={handleBlur}
+            value={inputValue}
+            onChange={handleInputChange}
+            style={{ width: inputWidth, transition: 'width 0.2s ease-in-out' }}
+            type='text'
+            placeholder='Пошук тренування'
+          />
+        </Link>
+      </div >
+      {!burgerTrue && <BurgerBig />}
     </>
   );
 }

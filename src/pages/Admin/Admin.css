@@ -1,0 +1,15 @@
+.admin-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0 0 0 / 69%);
+    border-radius: 20px;
+    padding: 30px;
+    width: 20%;
+    margin-top: 5%;
+    gap: 10px;
+}

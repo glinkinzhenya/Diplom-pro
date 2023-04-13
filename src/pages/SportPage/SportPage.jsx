@@ -1,39 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import CreateModal from '../../components/Templates/Main/ComponentMain/CreateModal';
 import './SportPage.css';
 
-let resetDay;
-let resetTime;
-let resetNumber;
-
-export function reset() {
-  resetDay('');
-  resetTime('');
-  resetNumber('');
-}
-
 export default function NameNextPage() {
-  let data = null;
   let time = {};
 
-  const name = localStorage.getItem('newTrainings');
+  const { trainings } = useSelector((state) => state.trainingsReducer);
 
-  const newName = JSON.parse(name);
   const nameButton = localStorage.getItem('trainingName');
 
-  if (nameButton === null) {
-    data = newName;
-  } else {
-    newName.map((i) => {
-      if (i.name === nameButton) {
-        data = i;
-      }
-      return ('');
-    });
-  }
+  trainings.map((i) => {
+    if (i.name === nameButton) localStorage.setItem('card', `${JSON.stringify(i)}`);
+    return ('');
+  });
 
   // Получаем ключи с Днями
+  const data = JSON.parse(localStorage.getItem('card'));
   const daysKeys = Object.keys(data.days);
 
   // Таймер
@@ -61,10 +45,6 @@ export default function NameNextPage() {
   const number = selectedOption3 - 1;
 
   const [dataTime, setDataTime] = useState({});
-
-  resetDay = setSelectedOption1;
-  resetTime = setSelectedOption2;
-  resetNumber = setSelectedOption3;
 
   const dataTimeKeys = Object.keys(dataTime);
 
